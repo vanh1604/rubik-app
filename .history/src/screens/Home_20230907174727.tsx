@@ -8,7 +8,7 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <BackgroundLayout>
-      <Box flex={1} justifyContent={'center'}>
+      <Box flex={1}>
         <Text>Home</Text>
       </Box>
     </BackgroundLayout>
