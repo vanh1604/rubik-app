@@ -26,9 +26,7 @@ const LoadingOverlay = () => {
 		</Center>
 	) : (
 		<View></View>
-	);
-};
-
+	);}
 export default LoadingOverlay;
 
 const styles = StyleSheet.create({

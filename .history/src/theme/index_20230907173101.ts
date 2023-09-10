@@ -17,10 +17,6 @@ export const newColorTheme = {
     color1: "#C637D9",
     color2: "#5928A2",
   },
-  gradient: {
-    color1: "#C637D9",
-    color2: "#5928A2",
-  },
 };
 
 const appTheme = extendTheme({

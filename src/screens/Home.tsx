@@ -5,6 +5,7 @@ import CardItem from "../components/Home/CardItem";
 import CardItemBox from "../components/Home/CardItemBox";
 import { mockupData } from "../constansts/items";
 
+<<<<<<< HEAD
 type Props = {};
 
 const Home = (props: Props) => {
@@ -26,6 +27,15 @@ const Home = (props: Props) => {
 		</SafeAreaView>
 	);
 };
+=======
+const Home = () => {
+  return (
+    <View>
+      <Text>Home</Text>
+    </View>
+  )
+}
+>>>>>>> 88fefce1c717878255da181c5f6a89c492093a11
 
 export default Home;
 
