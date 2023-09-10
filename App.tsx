@@ -8,15 +8,6 @@ import * as SplashScreen from "expo-splash-screen";
 import store from "./src/store";
 import { useEffect } from "react";
 import {
-<<<<<<< HEAD
-	useFonts,
-	Quicksand_300Light,
-	Quicksand_400Regular,
-	Quicksand_500Medium,
-	Quicksand_600SemiBold,
-	Quicksand_700Bold,
-} from "@expo-google-fonts/quicksand";
-=======
   useFonts,
   IBMPlexMono_100Thin,
   IBMPlexMono_100Thin_Italic,
@@ -33,21 +24,11 @@ import {
   IBMPlexMono_700Bold,
   IBMPlexMono_700Bold_Italic,
 } from "@expo-google-fonts/ibm-plex-mono";
->>>>>>> 88fefce1c717878255da181c5f6a89c492093a11
 import appTheme from "./src/theme";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
-<<<<<<< HEAD
 	let [fontsLoaded] = useFonts({
-		Quicksand_300Light,
-		Quicksand_400Regular,
-		Quicksand_500Medium,
-		Quicksand_600SemiBold,
-		Quicksand_700Bold,
-	});
-=======
-  let [fontsLoaded] = useFonts({
     IBMPlexMono_100Thin,
     IBMPlexMono_100Thin_Italic,
     IBMPlexMono_200ExtraLight,
@@ -62,8 +43,7 @@ export default function App() {
     IBMPlexMono_600SemiBold_Italic,
     IBMPlexMono_700Bold,
     IBMPlexMono_700Bold_Italic,
-  });
->>>>>>> 88fefce1c717878255da181c5f6a89c492093a11
+	});
 
 	useEffect(() => {
 		if (fontsLoaded) {
