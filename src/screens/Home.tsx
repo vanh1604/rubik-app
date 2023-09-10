@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
 import BackgroundLayout from "../components/BackgroundLayout";
 import { Box } from "native-base";
-import Header from "../components/Header";
+
 
 type Props = {};
 
@@ -18,4 +18,4 @@ const Home = (props: Props) => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+

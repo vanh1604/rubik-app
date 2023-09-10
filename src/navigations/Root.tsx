@@ -8,9 +8,16 @@ import { removeLoading, setLoading } from "../store/loading.reducer";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { RootStackParams } from "./config";
 import Home from "../screens/Home";
+
 import Progress from "../screens/Progress";
 import TabNav from "./TabNav";
-import Trainning from "../screens/Trainning";
+
+import SplashScreen from "../screens/Home2";
+import Quizz from "../screens/Quizz/Quizz";
+
+import LogInScreen from "../screens/LogInScreen";
+import RegisterScreen from "../screens/RegisterScreen";
+import RegisterOTP from "../screens/RegisterOTP";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +32,8 @@ const Root = () => {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="Tabnav" component={TabNav} />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Quizz" component={Quizz} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
