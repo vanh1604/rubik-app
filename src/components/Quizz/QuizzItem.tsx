@@ -1,10 +1,14 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+	StyleSheet,
+	TouchableOpacity,
+	TouchableOpacityProps,
+} from "react-native";
 import React from "react";
 import { Box, Row } from "native-base";
 import { Text } from "native-base";
 import { colors } from "../../constansts/style";
 
-export interface QuizzItemProps {
+export interface QuizzItemProps extends TouchableOpacityProps {
 	title: string;
 	answer: string;
 	rightAnswer?: boolean;

@@ -1,4 +1,3 @@
-import { View } from "react-native";
 import React from "react";
 import { Box, FlatList, Text } from "native-base";
 import QuizzItem, { QuizzItemProps } from "./QuizzItem";
