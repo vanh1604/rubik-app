@@ -12,10 +12,10 @@ const loadingSlice = createSlice({
   name: "loading",
   initialState,
   reducers: {
-    setLoading: (state) => {
+    setLoading: (state: LoadingState) => {
       state.isLoading = true;
     },
-    removeLoading: (state) => {
+    removeLoading: (state: LoadingState) => {
       state.isLoading = false;
     },
   },
