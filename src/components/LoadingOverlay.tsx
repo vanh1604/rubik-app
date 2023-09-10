@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 import React from "react";
-import { Center, HStack, Heading, Spinner } from "native-base";
+import { Center, HStack, Heading, Spinner, View } from "native-base";
 import { RootState, useAppSelector } from "../store";
 
 const LoadingOverlay = () => {
   const loading = useAppSelector((state: RootState) => state.loading.isLoading);
 
   return (
-    loading && (
+    loading ? (
       <Center flex={1} style={styles.container}>
         <HStack space={2} justifyContent="center">
           <Spinner accessibilityLabel="Loading posts" color={"primary.Main"} />
@@ -16,7 +16,7 @@ const LoadingOverlay = () => {
           </Heading>
         </HStack>
       </Center>
-    )
+    ):<View></View>
   );
 };
 

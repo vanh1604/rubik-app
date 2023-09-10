@@ -8,8 +8,11 @@ import { removeLoading, setLoading } from "../store/loading.reducer";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { RootStackParams } from "./config";
 import Home from "../screens/Home";
+import LogInScreen from "../screens/LogInScreen";
+import RegisterScreen from "../screens/RegisterScreen";
+import RegisterOTP from "../screens/RegisterOTP";
 
-const Stack = createNativeStackNavigator<RootStackParams>();
+const Stack = createNativeStackNavigator();
 
 const Root = () => {
   return (
@@ -22,7 +25,7 @@ const Root = () => {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="RegisterOTP" component={RegisterOTP} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

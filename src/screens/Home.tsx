@@ -1,20 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import BackgroundLayout from "../components/BackgroundLayout";
-import { Box } from "native-base";
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-type Props = {};
-
-const Home = (props: Props) => {
+const Home = () => {
   return (
-    <BackgroundLayout>
-      <Box flex={1} justifyContent={'center'}>
-        <Text>Home</Text>
-      </Box>
-    </BackgroundLayout>
-  );
-};
+    <View>
+      <Text>Home</Text>
+    </View>
+  )
+}
 
-export default Home;
+export default Home
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({})
