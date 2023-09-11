@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Box, Progress, Row, Text } from "native-base";
+import { Box, Icon, IconButton, Progress, Row, Text } from "native-base";
 import { quizzes } from "../../constansts/items";
 import { STYLES, colors } from "../../constansts/style";
 import QuizzItem from "../../components/Quizz/QuizzItem";
 import QuizzDisplay from "../../components/Quizz/QuizzDisplay";
+import Footer from "../../components/Quizz/Footer/Footer";
 
 const Quizz = () => {
 	const navigation = useNavigation<any>();
 	const questions = quizzes;
-
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerShown: true,
@@ -18,12 +18,24 @@ const Quizz = () => {
 		});
 	});
 	const [order, setOrder] = useState(1);
+	const minOrder = 1;
+	const maxOrder = questions.length;
 	const onOrderChange = (order: number) => {
-		const newOrder = order;
+		let newOrder = order;
+		if (newOrder > maxOrder) newOrder = maxOrder;
+		if (newOrder < minOrder) newOrder = minOrder;
+		console.log(newOrder);
+
 		setOrder(newOrder);
 	};
 	const [countdown, setCountdown] = useState(180); // Initial countdown time in seconds
-
+	const thisAnswer = questions[order - 1];
+	const ansOptions = thisAnswer.ans.map((item, index) => {
+		return {
+			...item,
+			isSelect: order - 1 == index,
+		};
+	});
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			if (countdown === 0) {
@@ -74,7 +86,28 @@ const Quizz = () => {
 				mb={8}>
 				<Progress value={(order / questions.length) * 100} />
 			</Box>
-			<QuizzDisplay {...questions[order - 1]} />
+			<QuizzDisplay
+				onAnswer={() => {
+					onOrderChange(order + 1);
+				}}
+				ans={ansOptions}
+				order={order}
+				title={thisAnswer.title}
+			/>
+			<Footer
+				isFirst={order == 1}
+				isLast={order == questions.length}
+				footerLeftOptions={{
+					onPress: () => {
+						onOrderChange(order - 1);
+					},
+				}}
+				footerRightOptions={{
+					onPress: () => {
+						onOrderChange(order + 1);
+					},
+				}}
+			/>
 		</Box>
 	);
 };

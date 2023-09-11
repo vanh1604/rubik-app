@@ -28,7 +28,7 @@ import appTheme from "./src/theme";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
-	let [fontsLoaded] = useFonts({
+  let [fontsLoaded] = useFonts({
     IBMPlexMono_100Thin,
     IBMPlexMono_100Thin_Italic,
     IBMPlexMono_200ExtraLight,
@@ -43,24 +43,24 @@ export default function App() {
     IBMPlexMono_600SemiBold_Italic,
     IBMPlexMono_700Bold,
     IBMPlexMono_700Bold_Italic,
-	});
+  });
 
-	useEffect(() => {
-		if (fontsLoaded) {
-			SplashScreen.hideAsync();
-		}
-	}, [fontsLoaded]);
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
-	if (!fontsLoaded) {
-		return null;
-	}
-	return (
-		<NativeBaseProvider theme={appTheme}>
-			<Provider store={store}>
-				<Root />
-			</Provider>
-		</NativeBaseProvider>
-	);
+  if (!fontsLoaded) {
+    return null;
+  }
+  return (
+    <NativeBaseProvider theme={appTheme}>
+      <Provider store={store}>
+        <Root />
+      </Provider>
+    </NativeBaseProvider>
+  );
 }
 
 const styles = StyleSheet.create({});

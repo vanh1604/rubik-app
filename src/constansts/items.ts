@@ -1,4 +1,4 @@
-import { CardItemProps } from "../components/Home/CardItem";
+import { CardItemProps } from "../components/Main/CardItem";
 
 export const mockupData: CardItemProps[] = new Array(5).fill({
     title: "Lorem ipsum Dolor",

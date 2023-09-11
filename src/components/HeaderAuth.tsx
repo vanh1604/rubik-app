@@ -45,7 +45,6 @@ const Header = (props: Props) => {
                 </Text>
               </Box>
             )}
-            {!handleButtonAdd && !handleButtonSave &&  <Box size={8} />}
           </HStack>
         </Box>
       </BackgroundLayout>
