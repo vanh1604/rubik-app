@@ -8,36 +8,33 @@ import { removeLoading, setLoading } from "../store/loading.reducer";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { RootStackParams } from "./config";
 import Home from "../screens/Home";
-
-import Progress from "../screens/Progress";
-import TabNav from "./TabNav";
-
-import SplashScreen from "../screens/Home2";
+import SplashScreen from "../screens/SplashScreen";
 import Quizz from "../screens/Quizz/Quizz";
-
-import LogInScreen from "../screens/LogInScreen";
-import RegisterScreen from "../screens/RegisterScreen";
-import RegisterOTP from "../screens/RegisterOTP";
 
 const Stack = createNativeStackNavigator();
 
 const Root = () => {
-  return (
-    <>
-      <LoadingOverlay />
-      <ErrorOverlay />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Quizz" component={Quizz} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
+	return (
+		<>
+			<LoadingOverlay />
+			<ErrorOverlay />
+			<NavigationContainer>
+				<Stack.Navigator
+					screenOptions={{
+						headerShown: false,
+					}}>
+					<Stack.Screen
+						name="Home"
+						component={Home}
+					/>
+					<Stack.Screen
+						name="Quizz"
+						component={Quizz}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</>
+	);
 };
 
 export default Root;

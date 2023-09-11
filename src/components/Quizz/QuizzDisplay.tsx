@@ -8,6 +8,7 @@ export interface QuizzProps {
 	title: string;
 	order: number;
 	isAnswering?: boolean;
+	onAnswer?: any;
 }
 
 const QuizzDisplay = (props: QuizzProps) => {
@@ -19,6 +20,7 @@ const QuizzDisplay = (props: QuizzProps) => {
 			<Text mb={8}>{props.title}</Text>
 			{props.ans.map((item, index) => (
 				<QuizzItem
+					onPress={() => props.onAnswer()}
 					{...item}
 					key={index}
 				/>

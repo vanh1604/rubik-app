@@ -3,7 +3,7 @@ import React from "react";
 import { windowHeight, windowWidth } from "../constansts/style";
 import { Box, Image, StatusBar } from "native-base";
 
-const Home2 = () => {
+const SplashScreen = () => {
 	return (
 		// <Image
 		// 	source={require("../../assets/background/Rectangle 22.png")}
@@ -21,6 +21,6 @@ const Home2 = () => {
 	);
 };
 
-export default Home2;
+export default SplashScreen;
 
 const styles = StyleSheet.create({});

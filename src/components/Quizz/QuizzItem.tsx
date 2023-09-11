@@ -7,29 +7,35 @@ import React from "react";
 import { Box, Row } from "native-base";
 import { Text } from "native-base";
 import { colors } from "../../constansts/style";
+import { color } from "native-base/lib/typescript/theme/styled-system";
 
 export interface QuizzItemProps extends TouchableOpacityProps {
 	title: string;
 	answer: string;
 	rightAnswer?: boolean;
+	isSelect?: boolean;
 }
 
 const QuizzItem = (props: QuizzItemProps) => {
+	const textColor = props.isSelect ? "#fff" : "#000";
 	return (
 		<TouchableOpacity
 			style={[
 				styles.answerBox,
 				{
 					marginBottom: 16,
+					backgroundColor: props.isSelect ? colors.primary : "#fff",
 				},
-			]}>
+			]}
+			{...props}>
 			<Row>
 				<Text
 					bold
-					mr={2}>
+					mr={2}
+					color={textColor}>
 					{props.answer}.{" "}
 				</Text>
-				<Text>{props.title}</Text>
+				<Text color={textColor}>{props.title}</Text>
 			</Row>
 		</TouchableOpacity>
 	);

@@ -14,5 +14,8 @@ export const STYLES = StyleSheet.create({
         fontSize: 16,
         color: colors.primary,
         fontWeight: "bold"
+    },
+    primaryButton: {
+        backgroundColor: colors.primary, 
     }
 })
