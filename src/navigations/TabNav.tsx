@@ -15,6 +15,8 @@ import { useTheme } from "native-base";
 import { BottomTabsParams } from "./config";
 import Progress from "../screens/Progress";
 import Trainning from "../screens/Trainning";
+import Home2 from "../screens/Home2";
+import CardItem from "../components/Home/CardItem";
 
 // import { BottomTabsParams } from "./types";
 

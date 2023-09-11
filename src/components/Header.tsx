@@ -14,8 +14,8 @@ const Header = (props: Props) => {
   const { colors } = useTheme();
   const {
     title,
-    handleBtnCancel = 1,
-    handleButtonAdd = 1,
+    handleBtnCancel = null,
+    handleButtonAdd = null,
     handleButtonSave,
   } = props;
   return (

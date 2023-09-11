@@ -18,6 +18,8 @@ import Quizz from "../screens/Quizz/Quizz";
 import LogInScreen from "../screens/LogInScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import RegisterOTP from "../screens/RegisterOTP";
+import AuthStack from "./AuthStack";
+import AddCalendar from "../screens/AddCalendar";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,8 +34,7 @@ const Root = () => {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Quizz" component={Quizz} />
+          <Stack.Screen name="Home" component={TabNav} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
