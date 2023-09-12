@@ -12,26 +12,36 @@ import SplashScreen from "../screens/SplashScreen";
 import Quizz from "../screens/Quizz/Quizz";
 
 import TabNav from "./TabNav";
+import AddCalendar from "../screens/AddCalendar";
 
 const Stack = createNativeStackNavigator();
 
 const Root = () => {
-  return (
-    <>
-      <LoadingOverlay />
-      <ErrorOverlay />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Home" component={TabNav} />
-          <Stack.Screen name="Quizz" component={Quizz} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
+	return (
+		<>
+			<LoadingOverlay />
+			<ErrorOverlay />
+			<NavigationContainer>
+				<Stack.Navigator
+					screenOptions={{
+						headerShown: false,
+					}}>
+					<Stack.Screen
+						name="Home"
+						component={TabNav}
+					/>
+					<Stack.Screen
+						name="Quizz"
+						component={Quizz}
+					/>
+					<Stack.Screen
+						name="TimePicker"
+						component={AddCalendar}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</>
+	);
 };
 
 export default Root;

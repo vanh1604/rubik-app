@@ -21,15 +21,14 @@ export const newColorTheme = {
     color1: "#C637D9",
     color2: "#5928A2",
   },
-  gradient: {
-    color1: "#C637D9",
-    color2: "#5928A2",
-  },
 };
 
 const appTheme = extendTheme({
   colors: newColorTheme,
   fontConfig: {
+    SystemGreen: {
+      light: "#34C759"
+    },
     Mono: {
       300: {
         normal: "IBMPlexMono_300Light",

@@ -33,7 +33,6 @@ const Quizz = () => {
 	const ansOptions = thisAnswer.ans.map((item, index) => {
 		return {
 			...item,
-			isSelect: order - 1 == index,
 		};
 	});
 	useEffect(() => {
@@ -87,9 +86,6 @@ const Quizz = () => {
 				<Progress value={(order / questions.length) * 100} />
 			</Box>
 			<QuizzDisplay
-				onAnswer={() => {
-					onOrderChange(order + 1);
-				}}
 				ans={ansOptions}
 				order={order}
 				title={thisAnswer.title}

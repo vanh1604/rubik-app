@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -7,6 +7,7 @@ import {
   Calendar,
   Home as HomeIcon,
   Chart,
+  Add,
 } from "iconsax-react-native";
 import Home from "../screens/Home";
 
@@ -16,6 +17,8 @@ import { BottomTabsParams } from "./config";
 import Progress from "../screens/Progress";
 import Trainning from "../screens/Trainning";
 import LeagueSearch from "../screens/LeagueSearch";
+import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 // import { BottomTabsParams } from "./types";
 
@@ -23,6 +26,7 @@ const Tab = createBottomTabNavigator<BottomTabsParams>();
 
 const TabNav = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation<any>();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -55,6 +59,9 @@ const TabNav = () => {
           tabBarIcon: ({ color, size }) => (
             <Calendar size={size} color={color} />
           ),
+
+          headerShown: true,
+          header: ()=><Header title="Lịch tập luyện" headerRight={<TouchableOpacity onPress={()=>navigation.navigate("TimePicker",{})}><Add color="#fff"size={24}/></TouchableOpacity>}/>
         }}
       />
       <Tab.Screen
@@ -62,6 +69,8 @@ const TabNav = () => {
         component={LeagueSearch}
         options={{
           tabBarIcon: ({ color, size }) => <Cup size={size} color={color} />,
+          headerShown: true,
+          header: () => <Header title="Tra cứu cuộc thi" headerLeft />,
         }}
       />
       <Tab.Screen
