@@ -9,6 +9,7 @@ export const newColorTheme = {
     600: "#652FAE",
     Main: "#F58216",
     Lighter: "#FDE5CE",
+    100: "#DDCAF9",
   },
   muted: {
     50: "#FAFAFA",

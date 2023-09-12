@@ -15,6 +15,7 @@ import { useTheme } from "native-base";
 import { BottomTabsParams } from "./config";
 import Progress from "../screens/Progress";
 import Trainning from "../screens/Trainning";
+import LeagueSearch from "../screens/LeagueSearch";
 
 // import { BottomTabsParams } from "./types";
 
@@ -58,7 +59,7 @@ const TabNav = () => {
       />
       <Tab.Screen
         name="Cup"
-        component={Progress}
+        component={LeagueSearch}
         options={{
           tabBarIcon: ({ color, size }) => <Cup size={size} color={color} />,
         }}
