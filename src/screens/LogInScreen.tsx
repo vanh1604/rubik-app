@@ -86,7 +86,7 @@ const LogInScreen = (props: Props) => {
           justifyContent={"center"}
           alignItems={"center"}
           flexDirection={"row"}
-          paddingTop={8}
+          paddingTop={16}
           paddingBottom={8}
           borderColor={"#FFF"}
           borderBottomWidth={1}
@@ -149,6 +149,10 @@ const LogInScreen = (props: Props) => {
           justifyContent: "center",
           alignItems: "center",
           alignSelf: "center",
+          paddingTop: 10,
+          paddingBottom: 10,
+          paddingLeft: 20,
+          paddingRight: 20,
         }}
       >
         <Text
