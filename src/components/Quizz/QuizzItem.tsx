@@ -3,7 +3,7 @@ import {
 	TouchableOpacity,
 	TouchableOpacityProps,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Box, Row } from "native-base";
 import { Text } from "native-base";
 import { colors } from "../../constansts/style";
@@ -13,18 +13,18 @@ export interface QuizzItemProps extends TouchableOpacityProps {
 	title: string;
 	answer: string;
 	rightAnswer?: boolean;
-	isSelect?: boolean;
+	isUserChoice?: boolean;
 }
 
 const QuizzItem = (props: QuizzItemProps) => {
-	const textColor = props.isSelect ? "#fff" : "#000";
+	const textColor = props.isUserChoice ? "#fff" : "#000";
 	return (
 		<TouchableOpacity
 			style={[
 				styles.answerBox,
 				{
 					marginBottom: 16,
-					backgroundColor: props.isSelect ? colors.primary : "#fff",
+					backgroundColor: props.isUserChoice ? colors.primary : "#fff",
 				},
 			]}
 			{...props}>
