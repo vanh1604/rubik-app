@@ -8,11 +8,7 @@ import { removeLoading, setLoading } from "../store/loading.reducer";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { RootStackParams } from "./config";
 import Home from "../screens/Home";
-
-import Progress from "../screens/Progress";
-import TabNav from "./TabNav";
-
-import SplashScreen from "../screens/Home2";
+import SplashScreen from "../screens/SplashScreen";
 import Quizz from "../screens/Quizz/Quizz";
 
 import LogInScreen from "../screens/LogInScreen";
@@ -27,6 +23,8 @@ import InformationPerson from "../screens/Information";
 import ChangePassword from "../screens/ChangePassword";
 import UserProfile from "../screens/Profile";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
+import TabNav from "./TabNav";
+import AddCalendar from "../screens/AddCalendar";
 
 const Stack = createNativeStackNavigator();
 

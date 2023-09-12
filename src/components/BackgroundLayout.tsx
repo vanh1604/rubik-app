@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 import React, { ReactNode } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { Box, useTheme } from "native-base";
-export type Props = {
+export interface Props {
 	children: ReactNode;
-};
+}
 const BackgroundLayout = (props: Props) => {
 	const { children } = props;
 	const { colors } = useTheme();

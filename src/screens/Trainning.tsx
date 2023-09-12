@@ -3,61 +3,17 @@ import React from "react";
 import { Box, Switch, Text } from "native-base";
 import Header from "../components/Header";
 import { useTheme } from "native-base";
+import TrainingItem from "../components/Training/TrainingItem";
 const Trainning = () => {
-  const { colors } = useTheme();
-  return (
-    <Box flex={1}>
-      <Header title="Lịch tập luyện" />
-      <Box
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-        padding={"4"}
-        alignItems={"center"}
-        borderBottomWidth={"1"}
-        borderBottomColor={colors.muted[300]}
-      >
-        <Box>
-          <Text fontSize={"30px"}>12:00</Text>
-          <Text fontSize={"16"}>Hàng ngày</Text>
-        </Box>
-        <Box>
-          <Switch size="lg" />
-        </Box>
-      </Box>
-      <Box
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-        padding={"4"}
-        alignItems={"center"}
-        borderBottomWidth={"1"}
-        borderBottomColor={colors.muted[300]}
-      >
-        <Box>
-          <Text fontSize={"30px"}>17:00</Text>
-          <Text fontSize={"16"}>Hàng ngày</Text>
-        </Box>
-        <Box>
-          <Switch size="lg" />
-        </Box>
-      </Box>
-      <Box
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-        padding={"4"}
-        alignItems={"center"}
-        borderBottomWidth={"1"}
-        borderBottomColor={colors.muted[300]}
-      >
-        <Box>
-          <Text fontSize={"30px"}>21:00</Text>
-          <Text fontSize={"16"}>Hàng ngày</Text>
-        </Box>
-        <Box>
-          <Switch size="lg" />
-        </Box>
-      </Box>
-    </Box>
-  );
+	const { colors } = useTheme();
+
+	return (
+		<Box flex={1}>
+			<TrainingItem time="12:00" />
+			<TrainingItem time="17:00" />
+			<TrainingItem time="21:00" />
+		</Box>
+	);
 };
 
 export default Trainning;

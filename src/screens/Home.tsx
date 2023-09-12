@@ -1,21 +1,29 @@
-import { StyleSheet, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 import React from "react";
 import BackgroundLayout from "../components/BackgroundLayout";
-import { Box } from "native-base";
-
+import { Box, Center, Image } from "native-base";
+import CardItemBox from "../components/Main/CardItemBox";
+import { mockupData } from "../constansts/items";
 
 type Props = {};
 
-const Home = (props: Props) => {
-  return (
-    <BackgroundLayout>
-      <Box flex={1} justifyContent={"center"}>
-        <Text>Home</Text>
-      </Box>
-    </BackgroundLayout>
-  );
+const Main = (props: Props) => {
+	return (
+		<SafeAreaView style={{ marginHorizontal: 24 }}>
+			<Center>
+				<Image
+					source={require("../../assets/image/Logo/main_logo.png")}
+					alt="Main logo"
+				/>
+			</Center>
+			<CardItemBox
+				data={mockupData}
+				title="Rubik 3x3x3"
+			/>
+		</SafeAreaView>
+	);
 };
 
-export default Home;
+export default Main;
 
 const styles = StyleSheet.create({});

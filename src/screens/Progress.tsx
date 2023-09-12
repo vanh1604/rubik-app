@@ -7,7 +7,7 @@ import { ArrowDown2 } from "iconsax-react-native";
 const Progress = () => {
   const { colors } = useTheme();
   return (
-    <Box flex={1}>
+    <Box flex={1} >
       <Header title="Tiến độ học tập" />
       <Box alignItems={"center"}>
         <Box
