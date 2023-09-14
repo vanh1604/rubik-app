@@ -19,6 +19,7 @@ import Trainning from "../screens/Trainning";
 import LeagueSearch from "../screens/LeagueSearch";
 import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
+import InformationPerson from "../screens/InformationPerson";
 
 // import { BottomTabsParams } from "./types";
 

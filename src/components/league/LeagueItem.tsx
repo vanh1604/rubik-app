@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Box, Image, Text, useTheme } from "native-base";
-import { Calendar } from "iconsax-react-native";
+import { useNavigation } from "@react-navigation/native";
 export interface LeagueItemProps extends TouchableOpacityProps {
 	id?: string;
 	title: string;

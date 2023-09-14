@@ -13,6 +13,7 @@ import { IBMPlexMono_400Regular } from "@expo-google-fonts/ibm-plex-mono";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Header from "../components/Header";
+import HeaderAuth from "../components/HeaderAuth";
 
 type Props = {};
 
@@ -20,13 +21,11 @@ const InformationPerson = (props: Props) => {
   return (
     <View
       style={{
-        flex: 1,
         backgroundColor: "#FFF",
-        alignItems: "center",
         width: "100%",
-        paddingHorizontal: 16,
       }}
     >
+      <Header title="Thong tin" headerLeft={false} />
       <TouchableOpacity
         style={{
           height: 72,

@@ -28,7 +28,7 @@ const PrivacyPolicy = (props: Props) => {
 				paddingHorizontal: 16,
 				paddingVertical: 16,
 			}}>
-			{/* <Header title="Chính sách bảo mật" /> */}
+			<Header title="Chính sách bảo mật" />
 			<Text style={{ fontFamily: "IBMPlexMono_400Regular" }}>
 				Lorem ipsum dolor sit amet consectetur. Ornare augue ut volutpat
 				pharetra vulputate habitasse faucibus nibh morbi. Amet auctor dictum

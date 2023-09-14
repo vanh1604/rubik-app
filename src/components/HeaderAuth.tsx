@@ -10,7 +10,7 @@ interface Props {
   handleButtonSave?: any;
   handleBtnCancel?: any;
 }
-const Header = (props: Props) => {
+const HeaderAuth = (props: Props) => {
   const { colors } = useTheme();
   const {
     title,
@@ -52,7 +52,7 @@ const Header = (props: Props) => {
   );
 };
 
-export default Header;
+export default HeaderAuth;
 
 const styles = StyleSheet.create({
   text: {
