@@ -60,20 +60,6 @@ const TabNav = () => {
           tabBarIcon: ({ color, size }) => (
             <Calendar size={size} color={color} />
           ),
-
-          headerShown: true,
-          header: () => (
-            <Header
-              title="Lịch tập luyện"
-              headerRight={
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("TimePicker", {})}
-                >
-                  <Add color="#fff" size={24} />
-                </TouchableOpacity>
-              }
-            />
-          ),
         }}
       />
       <Tab.Screen
@@ -81,8 +67,6 @@ const TabNav = () => {
         component={LeagueSearch}
         options={{
           tabBarIcon: ({ color, size }) => <Cup size={size} color={color} />,
-          headerShown: true,
-          header: () => <Header title="Tra cứu cuộc thi" headerLeft />,
         }}
       />
       <Tab.Screen
@@ -92,7 +76,6 @@ const TabNav = () => {
           tabBarIcon: ({ color, size }) => (
             <ProfileCircle size={size} color={color} />
           ),
-          header: () => <Header title="Thong tin" />,
         }}
       />
     </Tab.Navigator>

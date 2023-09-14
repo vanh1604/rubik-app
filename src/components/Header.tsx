@@ -47,15 +47,16 @@ const Header = (props: Props) => {
     <Box height={24}>
       <BackgroundLayout>
         <Row alignItems={"flex-end"} height={"100%"}>
-          {backButton ? (
-            backButton
-          ) : (
-            <Box width={windowWidth / 3}></Box>
-          )}
           <Box flex={1} justifyContent={"flex-end"} mb={2}>
             <HStack alignItems={"center"} justifyContent={"space-between"}>
+              {backButton ? backButton : <Box width={windowWidth / 3}></Box>}
               <Center>
-                <Text color={"white"} fontWeight={500} fontSize={16}>
+                <Text
+                  textAlign={"center"}
+                  color={"white"}
+                  fontWeight={500}
+                  fontSize={16}
+                >
                   {title}
                 </Text>
                 {props.hasSearchBar && (

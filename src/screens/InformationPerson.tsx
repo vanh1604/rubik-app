@@ -14,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Header from "../components/Header";
 import HeaderAuth from "../components/HeaderAuth";
+import Header1 from "../components/Header1";
 
 type Props = {};
 
@@ -25,7 +26,7 @@ const InformationPerson = (props: Props) => {
         width: "100%",
       }}
     >
-      <Header title="Thong tin" headerLeft={false} />
+      <Header1 title="Thông tin" />
       <TouchableOpacity
         style={{
           height: 72,
