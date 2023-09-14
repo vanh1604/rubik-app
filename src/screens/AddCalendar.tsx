@@ -7,12 +7,13 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Header from "../components/Header";
 import { Text } from "native-base";
 import { STYLES, colors } from "../constansts/style";
+import Header1 from "../components/Header1";
 
 const AddCalendar = () => {
 	const navigation = useNavigation<any>();
 	const route = useRoute<any>();
 	const [date, setDate] = useState(new Date());
-	console.log("date initial: ", new Date(`${route.params.initialTime}Z`));
+	// console.log("date initial: ", new Date(`${route.params.initialTime}Z`));
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerShown: true,
@@ -29,10 +30,29 @@ const AddCalendar = () => {
 		// setShow(Platform.OS === "ios");
 		setDate(currentDate);
 	};
+	const onCancelHandler = () => {
+		console.log("Cancel");
+	};
+	const onSaveHandler = () => {
+		console.log("save");
+	};
 	return (
 		<Box
 			bgColor={"#fff"}
 			flex={1}>
+			<Header1
+				title="Thêm lịch"
+				LeftBtn={() => (
+					<TouchableOpacity onPress={onCancelHandler}>
+						<Text>Hủy</Text>
+					</TouchableOpacity>
+				)}
+				RightBtn={() => (
+					<TouchableOpacity onPress={onSaveHandler}>
+						<Text>Hủy</Text>
+					</TouchableOpacity>
+				)}
+			/>
 			<DateTimePicker
 				mode={"time"}
 				display="spinner"

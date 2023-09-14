@@ -10,11 +10,10 @@ export interface ItemBoxProps {
 
 const CardItemBox = (props: ItemBoxProps) => {
 	return (
-		<Box my={4}>
+		<Box mt={4}>
 			<Text
 				bold
 				fontSize={16}
-				mt={4}
 				mb={1}>
 				{props.title}
 			</Text>

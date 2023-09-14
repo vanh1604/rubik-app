@@ -24,7 +24,6 @@ const Quizz = () => {
 		let newOrder = order;
 		if (newOrder > maxOrder) newOrder = maxOrder;
 		if (newOrder < minOrder) newOrder = minOrder;
-		console.log(newOrder);
 
 		setOrder(newOrder);
 	};
@@ -51,7 +50,7 @@ const Quizz = () => {
 	const timeFormatted = (countdown: number) => {
 		const minute = Math.floor(countdown / 60);
 		const second = countdown % 60;
-		const formatted = (n: number) => (n < 10 && n > 0 ? `0${n}` : `${n}`);
+		const formatted = (n: number) => (n < 10 && n >= 0 ? `0${n}` : `${n}`);
 		const minuteFormatted = formatted(minute);
 		const secondFormatted = formatted(second);
 		return `${minuteFormatted}:${secondFormatted}`;

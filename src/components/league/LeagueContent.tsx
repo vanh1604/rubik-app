@@ -5,13 +5,14 @@ import { LeagueItemProps } from "./LeagueItem";
 import { ContentProps, leagueData } from "../../constansts/leagueInfor";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../Header";
+import Header1 from "../Header1";
 
 const LeagueContent = (props: any) => {
   const { colors } = useTheme();
 
   return (
     <Box>
-      <Header title="Cuộc thi" />
+      <Header1 title="Cuộc thi" />
       <ScrollView>
         <Box padding={8}>
           <Box>
@@ -37,31 +38,43 @@ const LeagueContent = (props: any) => {
             <Text lineHeight={20} fontSize={16} fontWeight={700}>
               Địa Điểm:
             </Text>
-            <Text lineHeight={18}
+            <Text
+              lineHeight={18}
               fontSize={12}
               fontWeight={400}
               marginTop={2}
-              marginBottom={2}>{ContentProps.location}</Text>
+              marginBottom={2}
+            >
+              {ContentProps.location}
+            </Text>
           </Box>
           <Box>
             <Text lineHeight={20} fontSize={16} fontWeight={700}>
               Yêu cầu khi đăng ký:
             </Text>
-            <Text lineHeight={18}
+            <Text
+              lineHeight={18}
               fontSize={12}
               fontWeight={400}
               marginTop={2}
-              marginBottom={2}>{ContentProps.signin}</Text>
+              marginBottom={2}
+            >
+              {ContentProps.signin}
+            </Text>
           </Box>
           <Box>
             <Text lineHeight={20} fontSize={16} fontWeight={700}>
               Lệ phí:
             </Text>
-            <Text lineHeight={18}
+            <Text
+              lineHeight={18}
               fontSize={12}
               fontWeight={400}
               marginTop={2}
-              marginBottom={2}>{ContentProps.fees}</Text>
+              marginBottom={2}
+            >
+              {ContentProps.fees}
+            </Text>
           </Box>
         </Box>
       </ScrollView>

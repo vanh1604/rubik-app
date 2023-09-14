@@ -8,11 +8,12 @@ import {
 	Home as HomeIcon,
 	Chart,
 	Add,
+	Chart1,
 } from "iconsax-react-native";
 import Home from "../screens/Home";
-
+import { FontAwesome5 } from "@expo/vector-icons";
 import { useTheme } from "native-base";
-
+import { FontAwesome } from "@expo/vector-icons";
 import { BottomTabsParams } from "./config";
 import Progress from "../screens/Progress";
 import Trainning from "../screens/Trainning";
@@ -41,7 +42,8 @@ const TabNav = () => {
 				component={Home}
 				options={{
 					tabBarIcon: ({ color, size }) => (
-						<HomeIcon
+						<FontAwesome
+							name="home"
 							size={size}
 							color={color}
 						/>
@@ -53,7 +55,7 @@ const TabNav = () => {
 				component={Progress}
 				options={{
 					tabBarIcon: ({ color, size }) => (
-						<Chart
+						<Chart1
 							size={size}
 							color={color}
 						/>
@@ -70,22 +72,6 @@ const TabNav = () => {
 							color={color}
 						/>
 					),
-
-					headerShown: true,
-					header: () => (
-						<Header
-							title="Lịch tập luyện"
-							headerRight={
-								<TouchableOpacity
-									onPress={() => navigation.navigate("TimePicker", {})}>
-									<Add
-										color="#fff"
-										size={24}
-									/>
-								</TouchableOpacity>
-							}
-						/>
-					),
 				}}
 			/>
 			<Tab.Screen
@@ -98,21 +84,15 @@ const TabNav = () => {
 							color={color}
 						/>
 					),
-					headerShown: true,
-					header: () => (
-						<Header
-							title="Tra cứu cuộc thi"
-							headerLeft
-						/>
-					),
 				}}
 			/>
 			<Tab.Screen
 				name="Profile"
-				component={Progress}
+				component={InformationPerson}
 				options={{
 					tabBarIcon: ({ color, size }) => (
-						<ProfileCircle
+						<FontAwesome5
+							name="user-alt"
 							size={size}
 							color={color}
 						/>

@@ -37,12 +37,28 @@ const Root = () => {
 				<Stack.Navigator
 					screenOptions={{
 						headerShown: false,
-					}}>
+					}}
+					initialRouteName="HomeTab">
 					<Stack.Screen
 						name="Policy"
 						component={PrivacyPolicy}
 					/>
-					{/* <Stack.Screen name="Quizz" component={Quizz} /> */}
+					<Stack.Screen
+						name="Login"
+						component={LogInScreen}
+					/>
+					<Stack.Screen
+						name="HomeTab"
+						component={TabNav}
+					/>
+					<Stack.Screen
+						name="Quizz"
+						component={Quizz}
+					/>
+					<Stack.Screen
+						name="TimePicker"
+						component={AddCalendar}
+					/>
 				</Stack.Navigator>
 			</NavigationContainer>
 		</>

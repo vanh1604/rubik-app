@@ -4,11 +4,12 @@ import { Box, Center, Text } from "native-base";
 import Header from "../components/Header";
 import { useTheme } from "native-base";
 import { ArrowDown2 } from "iconsax-react-native";
+import Header1 from "../components/Header1";
 const Progress = () => {
   const { colors } = useTheme();
   return (
-    <Box flex={1} >
-      <Header title="Tiến độ học tập" />
+    <Box flex={1}>
+      <Header1 title="Tiến độ học tập" />
       <Box alignItems={"center"}>
         <Box
           width={"80%"}

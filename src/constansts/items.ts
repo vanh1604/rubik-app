@@ -1,7 +1,7 @@
 import { CardItemProps } from "../components/Main/CardItem";
 
 export const mockupData: CardItemProps[] = new Array(5).fill({
-    title: "Lorem ipsum Dolor",
+    title: "Lorem ipsum Dolor sit amet",
     cardImage: require("../../assets/image/Logo/item_logo.png"),
 })
 
@@ -31,3 +31,5 @@ export const quizzes = emptyArray.map((item: any, index: any) => {
         order: index+1,
     }
 })
+
+

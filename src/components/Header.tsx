@@ -33,9 +33,7 @@ const Header = (props: Props) => {
 		headerLeft,
 	} = props;
 	const navigation = useNavigation<any>();
-	const backButton = headerLeft ? (
-		<Box width={windowWidth / 3}></Box>
-	) : (
+	const backButton = headerLeft || (
 		<TouchableOpacity
 			onPress={navigation.goBack}
 			style={{ width: windowWidth / 3 }}>
@@ -46,12 +44,11 @@ const Header = (props: Props) => {
 		</TouchableOpacity>
 	);
 	return (
-		<Box height={24}>
+		<Box height={20}>
 			<BackgroundLayout>
 				<Row
 					alignItems={"flex-end"}
 					height={"100%"}>
-					{backButton}
 					<Box
 						flex={1}
 						justifyContent={"flex-end"}
@@ -59,6 +56,7 @@ const Header = (props: Props) => {
 						<HStack
 							alignItems={"center"}
 							justifyContent={"space-between"}>
+							{headerLeft}
 							<Center>
 								<Text
 									color={"white"}
