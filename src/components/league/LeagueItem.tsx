@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Box, Image, Text, useTheme } from "native-base";
-import { Calendar } from "iconsax-react-native";
+import { useNavigation } from "@react-navigation/native";
 export interface LeagueItemProps extends TouchableOpacityProps {
   id?: string;
   title: string;
@@ -16,8 +16,12 @@ export interface LeagueItemProps extends TouchableOpacityProps {
 }
 const LeagueItem = (props: LeagueItemProps) => {
   const { colors } = useTheme();
+  const navigation = useNavigation<any>();
+  const toLeagueHandler = () => {
+    navigation.navigate("Content");
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={toLeagueHandler}>
       <Box
         flexDirection={"row"}
         alignItems={"center"}
@@ -47,6 +51,7 @@ const styles = StyleSheet.create({
   container: {
     // marginVertical: 50,
     marginHorizontal: 10,
+    marginTop: 20,
     // width: 342,
     // height: 128,
   },

@@ -19,6 +19,7 @@ import Trainning from "../screens/Trainning";
 import LeagueSearch from "../screens/LeagueSearch";
 import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
+import InformationPerson from "../screens/InformationPerson";
 
 // import { BottomTabsParams } from "./types";
 
@@ -61,7 +62,18 @@ const TabNav = () => {
           ),
 
           headerShown: true,
-          header: ()=><Header title="Lịch tập luyện" headerRight={<TouchableOpacity onPress={()=>navigation.navigate("TimePicker",{})}><Add color="#fff"size={24}/></TouchableOpacity>}/>
+          header: () => (
+            <Header
+              title="Lịch tập luyện"
+              headerRight={
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("TimePicker", {})}
+                >
+                  <Add color="#fff" size={24} />
+                </TouchableOpacity>
+              }
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -75,11 +87,12 @@ const TabNav = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Progress}
+        component={InformationPerson}
         options={{
           tabBarIcon: ({ color, size }) => (
             <ProfileCircle size={size} color={color} />
           ),
+          header: () => <Header title="Thong tin" />,
         }}
       />
     </Tab.Navigator>

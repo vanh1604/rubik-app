@@ -47,7 +47,11 @@ const Header = (props: Props) => {
     <Box height={24}>
       <BackgroundLayout>
         <Row alignItems={"flex-end"} height={"100%"}>
-          {backButton}
+          {backButton ? (
+            backButton
+          ) : (
+            <Box width={windowWidth / 3}></Box>
+          )}
           <Box flex={1} justifyContent={"flex-end"} mb={2}>
             <HStack alignItems={"center"} justifyContent={"space-between"}>
               <Center>

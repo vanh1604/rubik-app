@@ -18,13 +18,16 @@ import ForgotPassword1 from "../screens/ForgotPassword1";
 import ForgotPassword2 from "../screens/ForgotPassword2";
 import ForgotPassword3 from "../screens/ForgotPassword3";
 import { Information, Profile } from "iconsax-react-native";
-import ThongTin from "../screens/Information";
-import InformationPerson from "../screens/Information";
+import ThongTin from "../screens/InformationPerson";
+import InformationPerson from "../screens/InformationPerson";
 import ChangePassword from "../screens/ChangePassword";
 import UserProfile from "../screens/Profile";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
 import TabNav from "./TabNav";
 import AddCalendar from "../screens/AddCalendar";
+import LeagueContent from "../components/league/LeagueContent";
+import Header from "../components/Header";
+import Title from "../components/Title";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,8 +42,12 @@ const Root = () => {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="Policy" component={PrivacyPolicy} />
-          {/* <Stack.Screen name="Quizz" component={Quizz} /> */}
+          <Stack.Screen name="Policy" component={TabNav} />
+          <Stack.Screen name="Quizz" component={Quizz} />
+          <Stack.Screen
+            name="Content"
+            component={LeagueContent}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
