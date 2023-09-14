@@ -25,26 +25,40 @@ import UserProfile from "../screens/Profile";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
 import TabNav from "./TabNav";
 import AddCalendar from "../screens/AddCalendar";
+import Header from "../components/Header";
 
 const Stack = createNativeStackNavigator();
 
 const Root = () => {
-  return (
-    <>
-      <LoadingOverlay />
-      <ErrorOverlay />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Policy" component={PrivacyPolicy} />
-          {/* <Stack.Screen name="Quizz" component={Quizz} /> */}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
+	return (
+		<>
+			<LoadingOverlay />
+			<ErrorOverlay />
+			<NavigationContainer>
+				<Stack.Navigator
+					screenOptions={{
+						headerShown: false,
+					}}>
+					<Stack.Screen
+						name="Policy"
+						component={PrivacyPolicy}
+						options={{
+							headerShown: true,
+							header: () => <Header title="Chính sách bảo mật" />,
+						}}
+					/>
+					<Stack.Screen
+						name="Quizz"
+						component={Quizz}
+					/>
+					<Stack.Screen
+						name="HomeTab"
+						component={TabNav}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</>
+	);
 };
 
 export default Root;

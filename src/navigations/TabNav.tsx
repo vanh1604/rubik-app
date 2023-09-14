@@ -2,12 +2,12 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
-  ProfileCircle,
-  Cup,
-  Calendar,
-  Home as HomeIcon,
-  Chart,
-  Add,
+	ProfileCircle,
+	Cup,
+	Calendar,
+	Home as HomeIcon,
+	Chart,
+	Add,
 } from "iconsax-react-native";
 import Home from "../screens/Home";
 
@@ -25,65 +25,101 @@ import { useNavigation } from "@react-navigation/native";
 const Tab = createBottomTabNavigator<BottomTabsParams>();
 
 const TabNav = () => {
-  const { colors } = useTheme();
-  const navigation = useNavigation<any>();
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarInactiveTintColor: colors.muted[300],
-        tabBarActiveTintColor: colors.gradient.color1,
-        tabBarShowLabel: false,
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <HomeIcon size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Chart"
-        component={Progress}
-        options={{
-          tabBarIcon: ({ color, size }) => <Chart size={size} color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Calendar"
-        component={Trainning}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Calendar size={size} color={color} />
-          ),
+	const { colors } = useTheme();
+	const navigation = useNavigation<any>();
+	return (
+		<Tab.Navigator
+			screenOptions={{
+				headerShown: false,
+				tabBarInactiveTintColor: colors.muted[300],
+				tabBarActiveTintColor: colors.gradient.color1,
+				tabBarShowLabel: false,
+			}}>
+			<Tab.Screen
+				name="Home"
+				component={Home}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<HomeIcon
+							size={size}
+							color={color}
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Chart"
+				component={Progress}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<Chart
+							size={size}
+							color={color}
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Calendar"
+				component={Trainning}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<Calendar
+							size={size}
+							color={color}
+						/>
+					),
 
-          headerShown: true,
-          header: ()=><Header title="Lịch tập luyện" headerRight={<TouchableOpacity onPress={()=>navigation.navigate("TimePicker",{})}><Add color="#fff"size={24}/></TouchableOpacity>}/>
-        }}
-      />
-      <Tab.Screen
-        name="Cup"
-        component={LeagueSearch}
-        options={{
-          tabBarIcon: ({ color, size }) => <Cup size={size} color={color} />,
-          headerShown: true,
-          header: () => <Header title="Tra cứu cuộc thi" headerLeft />,
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Progress}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <ProfileCircle size={size} color={color} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
+					headerShown: true,
+					header: () => (
+						<Header
+							title="Lịch tập luyện"
+							headerRight={
+								<TouchableOpacity
+									onPress={() => navigation.navigate("TimePicker", {})}>
+									<Add
+										color="#fff"
+										size={24}
+									/>
+								</TouchableOpacity>
+							}
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Cup"
+				component={LeagueSearch}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<Cup
+							size={size}
+							color={color}
+						/>
+					),
+					headerShown: true,
+					header: () => (
+						<Header
+							title="Tra cứu cuộc thi"
+							headerLeft
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Profile"
+				component={Progress}
+				options={{
+					tabBarIcon: ({ color, size }) => (
+						<ProfileCircle
+							size={size}
+							color={color}
+						/>
+					),
+				}}
+			/>
+		</Tab.Navigator>
+	);
 };
 
 export default TabNav;
