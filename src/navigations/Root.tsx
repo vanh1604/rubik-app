@@ -30,27 +30,57 @@ import LeagueContent from "../components/league/LeagueContent";
 const Stack = createNativeStackNavigator();
 
 const Root = () => {
-  return (
-    <>
-      <LoadingOverlay />
-      <ErrorOverlay />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName="HomeTab"
-        >
-          <Stack.Screen name="Policy" component={PrivacyPolicy} />
-          <Stack.Screen name="Login" component={LogInScreen} />
-          <Stack.Screen name="HomeTab" component={TabNav} />
-          <Stack.Screen name="Quizz" component={Quizz} />
-          <Stack.Screen name="TimePicker" component={AddCalendar} />
-          <Stack.Screen name="Thông tin" component={LeagueContent} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
+	return (
+		<>
+			<LoadingOverlay />
+			<ErrorOverlay />
+			<NavigationContainer>
+				<Stack.Navigator
+					screenOptions={{
+						headerShown: false,
+					}}
+					initialRouteName="HomeTab"
+				>
+					<Stack.Screen
+						name="Login"
+						component={LogInScreen}
+					/>
+					<Stack.Screen
+						name="HomeTab"
+						component={TabNav}
+					/>
+					<Stack.Screen
+						name="Quizz"
+						component={Quizz}
+					/>
+					<Stack.Screen
+						name="TimePicker"
+						component={AddCalendar}
+					/>
+					<Stack.Screen
+						name="Thông tin"
+						component={LeagueContent}
+					/>
+					<Stack.Screen
+						name="AvatarChanger"
+						component={ForgotPassword1}
+					/>
+					<Stack.Screen
+						name="PasswordChanger"
+						component={ChangePassword}
+					/>
+					<Stack.Screen
+						name="Policy"
+						component={PrivacyPolicy}
+					/>
+					<Stack.Screen
+						name="InformationChanger"
+						component={UserProfile}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</>
+	);
 };
 
 export default Root;

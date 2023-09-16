@@ -15,28 +15,34 @@ import Header from "../components/Header";
 import Header1 from "../components/Header1";
 import UserCard, { InfoCardProps } from "../components/Information/Card";
 import { informationNav } from "../constansts/UserInformation";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {};
 
 const InformationPerson = (props: Props) => {
+	const navigation = useNavigation<any>();
 	return (
 		<View
 			style={{
 				backgroundColor: "#FFF",
 				width: "100%",
 				flex: 1,
-			}}>
+			}}
+		>
 			<Header1 title="Thông tin" />
 			<Column
 				mx={6}
-				mt={6}>
+				mt={6}
+			>
 				<TouchableOpacity
 					style={{
 						height: 72,
 						backgroundColor: "#F3F4F6",
 						borderRadius: 16,
 						paddingHorizontal: 12,
-					}}>
+					}}
+					onPress={() => navigation.navigate("AvatarChanger")}
+				>
 					<UserCard
 						title="Đổi hình đại diện"
 						Left={
@@ -63,9 +69,13 @@ const InformationPerson = (props: Props) => {
 						marginTop: 16,
 						width: "100%",
 						borderRadius: 16,
-					}}>
+					}}
+				>
 					{informationNav.map((info) => (
-						<TouchableOpacity {...info.parentOptions}>
+						<TouchableOpacity
+							{...info.parentOptions}
+							onPress={() => navigation.navigate(info.navigateTo)}
+						>
 							<UserCard {...info.childrenOptions} />
 						</TouchableOpacity>
 					))}

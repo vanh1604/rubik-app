@@ -7,6 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 export interface InformationNav {
 	parentOptions: TouchableOpacityProps;
 	childrenOptions: InfoCardProps;
+	navigateTo?: string;
 }
 
 const styles = StyleSheet.create({
@@ -25,6 +26,7 @@ export const informationNav: InformationNav[] = [
 		parentOptions: {
 			style: styles.card,
 		},
+		// Thay mật khẩu
 		childrenOptions: {
 			title: "Mật khẩu",
 			Left: (
@@ -45,11 +47,13 @@ export const informationNav: InformationNav[] = [
 				/>
 			),
 		},
+		navigateTo: "PasswordChanger",
 	},
 	{
 		parentOptions: {
 			style: styles.card,
 		},
+		// Thông tin
 		childrenOptions: {
 			title: "Thông tin",
 			Left: (
@@ -70,11 +74,13 @@ export const informationNav: InformationNav[] = [
 				/>
 			),
 		},
+		navigateTo: "InformationChanger",
 	},
 	{
 		parentOptions: {
 			style: styles.card,
 		},
+		//Chính sách bảo mật
 		childrenOptions: {
 			title: "Chính sách bảo mật",
 			Left: (
@@ -93,6 +99,7 @@ export const informationNav: InformationNav[] = [
 				/>
 			),
 		},
+		navigateTo: "Policy",
 	},
 	{
 		parentOptions: {
