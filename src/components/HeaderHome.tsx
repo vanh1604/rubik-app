@@ -1,10 +1,4 @@
-import {
-	SafeAreaView,
-	StyleSheet,
-	Touchable,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Touchable, TouchableOpacity, View } from "react-native";
 import React, { ReactNode } from "react";
 import { Box, Center, HStack, Row, Text } from "native-base";
 import { useTheme } from "native-base";
@@ -23,20 +17,15 @@ interface Props {
 	onAddButtonPress?: any;
 	hasSearchBar?: boolean;
 }
-const Header = (props: Props) => {
+const HomeHeader = (props: Props) => {
 	const { colors } = useTheme();
-	const {
-		title,
-		handleBtnCancel = null,
-		handleButtonAdd = null,
-		handleButtonSave,
-		headerLeft,
-	} = props;
+	const { title, handleBtnCancel = null, handleButtonAdd = null, handleButtonSave, headerLeft } = props;
 	const navigation = useNavigation<any>();
 	const backButton = headerLeft || (
 		<TouchableOpacity
 			onPress={navigation.goBack}
-			style={{ width: windowWidth / 3 }}>
+			style={{ width: windowWidth / 3 }}
+		>
 			<ArrowLeft2
 				size="32"
 				color="#fff"
@@ -48,20 +37,24 @@ const Header = (props: Props) => {
 			<BackgroundLayout>
 				<Row
 					alignItems={"flex-end"}
-					height={"100%"}>
+					height={"100%"}
+				>
 					<Box
 						flex={1}
 						justifyContent={"flex-end"}
-						mb={2}>
+						mb={2}
+					>
 						<HStack
 							alignItems={"center"}
-							justifyContent={"space-between"}>
+							justifyContent={"space-between"}
+						>
 							{headerLeft}
 							<Center>
 								<Text
 									color={"white"}
 									fontWeight={500}
-									fontSize={16}>
+									fontSize={16}
+								>
 									{title}
 								</Text>
 								{props.hasSearchBar && (
@@ -70,11 +63,7 @@ const Header = (props: Props) => {
 									</Box>
 								)}
 							</Center>
-							{props.headerRight ? (
-								props.headerRight
-							) : (
-								<Box width={windowWidth / 3}></Box>
-							)}
+							{props.headerRight ? props.headerRight : <Box width={windowWidth / 3}></Box>}
 						</HStack>
 					</Box>
 				</Row>
@@ -83,7 +72,7 @@ const Header = (props: Props) => {
 	);
 };
 
-export default Header;
+export default HomeHeader;
 
 const styles = StyleSheet.create({
 	text: {

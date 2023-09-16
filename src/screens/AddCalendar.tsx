@@ -1,10 +1,9 @@
-import { StyleSheet, Button, View, TouchableOpacity } from "react-native";
-import React, { useLayoutEffect } from "react";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
 import { useState } from "react";
 import { Box, Center, Checkbox } from "native-base";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import Header from "../components/Header";
 import { Text } from "native-base";
 import { STYLES, colors } from "../constansts/style";
 import Header1 from "../components/Header1";
@@ -14,17 +13,6 @@ const AddCalendar = () => {
 	const route = useRoute<any>();
 	const [date, setDate] = useState(new Date());
 	// console.log("date initial: ", new Date(`${route.params.initialTime}Z`));
-	useLayoutEffect(() => {
-		navigation.setOptions({
-			headerShown: true,
-			header: (props: any) => (
-				<Header
-					{...props}
-					title="Thêm lịch"
-				/>
-			),
-		});
-	});
 	const onChange = (event: any, selectedDate: any) => {
 		const currentDate = selectedDate || date;
 		// setShow(Platform.OS === "ios");
@@ -32,6 +20,7 @@ const AddCalendar = () => {
 	};
 	const onCancelHandler = () => {
 		console.log("Cancel");
+		navigation.goBack();
 	};
 	const onSaveHandler = () => {
 		console.log("save");
@@ -39,17 +28,18 @@ const AddCalendar = () => {
 	return (
 		<Box
 			bgColor={"#fff"}
-			flex={1}>
+			flex={1}
+		>
 			<Header1
 				title="Thêm lịch"
 				LeftBtn={() => (
 					<TouchableOpacity onPress={onCancelHandler}>
-						<Text>Hủy</Text>
+						<Text color={"#fff"}>Hủy</Text>
 					</TouchableOpacity>
 				)}
 				RightBtn={() => (
 					<TouchableOpacity onPress={onSaveHandler}>
-						<Text>Hủy</Text>
+						<Text color={"#fff"}>Lưu</Text>
 					</TouchableOpacity>
 				)}
 			/>
@@ -62,33 +52,26 @@ const AddCalendar = () => {
 			/>
 			<Box
 				borderBottomWidth={1}
-				borderBottomColor={colors.lightGrey}>
+				borderBottomColor={colors.lightGrey}
+			>
 				<Text
 					bold
 					fontSize={16}
 					px={6}
-					pb={2}>
+					pb={2}
+				>
 					Lặp lại
 				</Text>
 			</Box>
-			<MultipleChoiceBox
-				options={[
-					"Mọi Thứ Hai",
-					"Mọi Thứ Ba",
-					"Mọi Thứ Tư",
-					"Mọi Thứ Năm",
-					"Mọi Thứ Sáu",
-					"Mọi Thứ Bảy",
-					"Mọi Chủ Nhật",
-				]}
-			/>
+			<MultipleChoiceBox options={["Mọi Thứ Hai", "Mọi Thứ Ba", "Mọi Thứ Tư", "Mọi Thứ Năm", "Mọi Thứ Sáu", "Mọi Thứ Bảy", "Mọi Chủ Nhật"]} />
 			{!(route.params.initialTime || route.params) && (
 				<Center
 					mx={6}
 					position={"absolute"}
 					bottom={15}
 					left={3}
-					right={3}>
+					right={3}
+				>
 					<TouchableOpacity
 						style={[
 							STYLES.primaryButton,
@@ -98,7 +81,8 @@ const AddCalendar = () => {
 								paddingHorizontal: 24,
 								borderRadius: 100,
 							},
-						]}>
+						]}
+					>
 						<Center>
 							<Text color={"#fff"}>Xóa lịch</Text>
 						</Center>
@@ -132,7 +116,8 @@ const MultipleChoiceBox: React.FC<MultipleChoiceBoxProps> = ({ options }) => {
 				<TouchableOpacity
 					key={option}
 					style={styles.optionContainer}
-					onPress={() => toggleOption(option)}>
+					onPress={() => toggleOption(option)}
+				>
 					<Text style={styles.optionText}>{option}</Text>
 					<Checkbox
 						value={option}

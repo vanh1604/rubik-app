@@ -1,22 +1,18 @@
 import { StyleSheet } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Box, Icon, IconButton, Progress, Row, Text } from "native-base";
+import { Box, Column, Icon, IconButton, Progress, Row, Text } from "native-base";
 import { quizzes } from "../../constansts/items";
 import { STYLES, colors } from "../../constansts/style";
 import QuizzItem from "../../components/Quizz/QuizzItem";
 import QuizzDisplay from "../../components/Quizz/QuizzDisplay";
 import Footer from "../../components/Quizz/Footer/Footer";
+import Header1 from "../../components/Header1";
+import BackBtn from "../../components/BackBtn";
 
 const Quizz = () => {
 	const navigation = useNavigation<any>();
 	const questions = quizzes;
-	useLayoutEffect(() => {
-		navigation.setOptions({
-			headerShown: true,
-			title: "Câu hỏi",
-		});
-	});
 	const [order, setOrder] = useState(1);
 	const minOrder = 1;
 	const maxOrder = questions.length;
@@ -56,54 +52,63 @@ const Quizz = () => {
 		return `${minuteFormatted}:${secondFormatted}`;
 	};
 	return (
-		<Box
-			px={6}
+		<Column
 			bgColor={"white"}
 			flex={1}
-			width={"100%"}>
-			<Box
-				flexDirection={"row"}
-				justifyContent={"space-between"}
-				mt={6}>
-				<Box flexDirection={"row"}>
-					<Text>Thời gian </Text>
-					<Text bold>{timeFormatted(countdown)}</Text>
-				</Box>
-				<Box height={"auto"}>
-					<Text
-						style={[
-							STYLES.title,
-							{
-								textAlignVertical: "top",
-							},
-						]}>{`${order}/${questions.length}`}</Text>
-				</Box>
-			</Box>
-			<Box
-				w="100%"
-				mb={8}>
-				<Progress value={(order / questions.length) * 100} />
-			</Box>
-			<QuizzDisplay
-				ans={ansOptions}
-				order={order}
-				title={thisAnswer.title}
+			width={"100%"}
+		>
+			<Header1
+				title="Câu hỏi"
+				LeftBtn={BackBtn}
 			/>
-			<Footer
-				isFirst={order == 1}
-				isLast={order == questions.length}
-				footerLeftOptions={{
-					onPress: () => {
-						onOrderChange(order - 1);
-					},
-				}}
-				footerRightOptions={{
-					onPress: () => {
-						onOrderChange(order + 1);
-					},
-				}}
-			/>
-		</Box>
+			<Box px={6}>
+				<Box
+					flexDirection={"row"}
+					justifyContent={"space-between"}
+					mt={6}
+				>
+					<Box flexDirection={"row"}>
+						<Text>Thời gian </Text>
+						<Text bold>{timeFormatted(countdown)}</Text>
+					</Box>
+					<Box height={"auto"}>
+						<Text
+							style={[
+								STYLES.title,
+								{
+									textAlignVertical: "top",
+								},
+							]}
+						>{`${order}/${questions.length}`}</Text>
+					</Box>
+				</Box>
+				<Box
+					w="100%"
+					mb={8}
+				>
+					<Progress value={(order / questions.length) * 100} />
+				</Box>
+				<QuizzDisplay
+					ans={ansOptions}
+					order={order}
+					title={thisAnswer.title}
+				/>
+				<Footer
+					isFirst={order == 1}
+					isLast={order == questions.length}
+					footerLeftOptions={{
+						onPress: () => {
+							onOrderChange(order - 1);
+						},
+					}}
+					footerRightOptions={{
+						onPress: () => {
+							onOrderChange(order + 1);
+						},
+					}}
+				/>
+			</Box>
+		</Column>
 	);
 };
 
