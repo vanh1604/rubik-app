@@ -6,13 +6,14 @@ import { ContentProps, leagueData } from "../../constansts/leagueInfor";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../Header";
 import Header1 from "../Header1";
+import BackBtn from "../BackBtn";
 
 const LeagueContent = (props: any) => {
   const { colors } = useTheme();
 
   return (
     <Box>
-      <Header1 title="Cuộc thi" />
+      <Header1 title="Cuộc thi" LeftBtn={BackBtn} />
       <ScrollView>
         <Box padding={8}>
           <Box>

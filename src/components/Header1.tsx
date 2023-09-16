@@ -18,7 +18,12 @@ const Header1 = ({ title, LeftBtn, RightBtn }: Props) => {
   const { colors } = useTheme();
   return (
     <LinearGradient colors={[colors.gradient.color1, colors.gradient.color2]}>
-      <Row justifyContent="space-between" safeAreaTop pb="4">
+      <Row
+        justifyContent="space-between"
+        safeAreaTop
+        pb="4"
+        alignItems="center"
+      >
         <Center w="8">{LeftBtn && <LeftBtn size={24} color="white" />}</Center>
         <Heading
           size="md"
