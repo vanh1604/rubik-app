@@ -1,35 +1,17 @@
 import { TouchableOpacity, Image, StyleSheet, Text, TextInput } from "react-native";
 import React from "react";
-import BackgroundLayout from "../components/BackgroundLayout";
+import BackgroundLayout from "../../../components/BackgroundLayout";
 import { Box } from "native-base";
 
 type Props = {};
 
-const ForgotPassword1 = (props: Props) => {
+const ForgotPassword3 = (props: Props) => {
 	return (
 		<BackgroundLayout>
 			<Box
-				paddingTop={107}
 				justifyContent={"center"}
 				alignItems={"center"}
-			>
-				<Text
-					style={{
-						fontSize: 12,
-						fontFamily: "IBMPlexMono_400Regular",
-						textAlign: "center",
-						color: "#FFF",
-					}}
-				>
-					Nhập số điện thoại để khôi phục tài khoản
-				</Text>
-			</Box>
-
-			<Box
-				justifyContent={"center"}
-				alignItems={"center"}
-				paddingTop={74}
-				paddingBottom={128}
+				paddingTop={219}
 				px={6}
 			>
 				<Box
@@ -38,17 +20,17 @@ const ForgotPassword1 = (props: Props) => {
 					justifyContent={"center"}
 					alignItems={"center"}
 					flexDirection={"row"}
-					paddingTop={128}
+					paddingTop={8}
 					paddingBottom={8}
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
 				>
 					<Image
-						source={require("../components/assets/call.png")}
+						source={require("../components/assets/lock-closed.png")}
 						style={{ width: 20, height: 20 }}
 					/>
 					<TextInput
-						placeholder="Số điện thoại"
+						placeholder="Nhập mật khẩu"
 						placeholderTextColor="rgba(255, 255, 255, 0.4)"
 						style={{
 							color: "#FFF",
@@ -60,12 +42,53 @@ const ForgotPassword1 = (props: Props) => {
 							marginTop: 5,
 						}}
 					/>
+
+					<Image
+						source={require("../components/assets/eye-off.png")}
+						style={{ width: 20, height: 20 }}
+					/>
+				</Box>
+
+				<Box
+					width={"100%"}
+					height={37}
+					justifyContent={"center"}
+					alignItems={"center"}
+					flexDirection={"row"}
+					paddingTop={16}
+					paddingBottom={8}
+					borderColor={"#FFF"}
+					borderBottomWidth={1}
+				>
+					<Image
+						source={require("../components/assets/lock-closed.png")}
+						style={{ width: 20, height: 20 }}
+					/>
+					<TextInput
+						placeholder="Nhập lại mật khẩu"
+						placeholderTextColor="rgba(255, 255, 255, 0.4)"
+						style={{
+							color: "#FFF",
+							fontFamily: "IBMPlexMono_400Regular",
+							width: 306,
+							height: 25,
+							fontSize: 14,
+							paddingLeft: 8,
+							marginTop: 5,
+						}}
+						secureTextEntry
+					/>
+
+					<Image
+						source={require("../components/assets/eye-off.png")}
+						style={{ width: 20, height: 20 }}
+					/>
 				</Box>
 			</Box>
 
 			<TouchableOpacity
 				style={{
-					width: 175,
+					width: 141,
 					height: 41,
 					backgroundColor: "#FFF",
 					borderRadius: 100,
@@ -76,6 +99,7 @@ const ForgotPassword1 = (props: Props) => {
 					paddingBottom: 10,
 					paddingLeft: 20,
 					paddingRight: 20,
+					marginTop: 109,
 				}}
 			>
 				<Text
@@ -85,13 +109,13 @@ const ForgotPassword1 = (props: Props) => {
 						fontFamily: "IBMPlexMono_500Medium",
 					}}
 				>
-					ĐẶT LẠI MẬT KHẨU
+					ĐỔI MẬT KHẨU
 				</Text>
 			</TouchableOpacity>
 		</BackgroundLayout>
 	);
 };
 
-export default ForgotPassword1;
+export default ForgotPassword3;
 
 const styles = StyleSheet.create({});

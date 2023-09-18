@@ -1,18 +1,6 @@
-import {
-	TouchableOpacity,
-	Image,
-	StyleSheet,
-	Text,
-	TextInput,
-	View,
-} from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
-import { Box, Center, Row, Switch } from "native-base";
-import { flexbox } from "native-base/lib/typescript/theme/styled-system";
-import { IBMPlexMono_400Regular } from "@expo-google-fonts/ibm-plex-mono";
-import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import Header from "../components/Header";
+import { Box } from "native-base";
 import Header1 from "../components/Header1";
 import BackBtn from "../components/BackBtn";
 

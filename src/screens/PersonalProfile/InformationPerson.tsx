@@ -1,0 +1,91 @@
+import { TouchableOpacity, StyleSheet, TextInput, View, TouchableOpacityProps } from "react-native";
+import React from "react";
+import { Column, Image } from "native-base";
+import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+
+import Header1 from "../../components/Header1";
+import UserCard from "../../components/Information/Card";
+import { informationNav } from "../../constansts/UserInformation";
+import { useNavigation } from "@react-navigation/native";
+
+type Props = {};
+
+const InformationPerson = (props: Props) => {
+	const navigation = useNavigation<any>();
+	return (
+		<View
+			style={{
+				backgroundColor: "#FFF",
+				width: "100%",
+				flex: 1,
+			}}
+		>
+			<Header1 title="Thông tin" />
+			<Column
+				mx={6}
+				mt={6}
+			>
+				<TouchableOpacity
+					style={{
+						height: 72,
+						backgroundColor: "#F3F4F6",
+						borderRadius: 16,
+						paddingHorizontal: 12,
+					}}
+					onPress={() => navigation.navigate("AvatarChanger")}
+				>
+					<UserCard
+						title="Đổi hình đại diện"
+						Left={
+							<Image
+								source={require("../components/assets/Ellipse.png")}
+								w={12}
+								h={12}
+								mr={4}
+							/>
+						}
+						Right={
+							<Ionicons
+								name="chevron-forward"
+								size={24}
+								color="black"
+							/>
+						}
+					/>
+				</TouchableOpacity>
+
+				<View
+					style={{
+						backgroundColor: "#F3F4F6",
+						marginTop: 16,
+						width: "100%",
+						borderRadius: 16,
+					}}
+				>
+					{informationNav.map((info) => (
+						<TouchableOpacity
+							{...info.parentOptions}
+							onPress={() => navigation.navigate(info.navigateTo)}
+						>
+							<UserCard {...info.childrenOptions} />
+						</TouchableOpacity>
+					))}
+				</View>
+			</Column>
+		</View>
+	);
+};
+
+export default InformationPerson;
+
+const styles = StyleSheet.create({
+	card: {
+		borderBottomWidth: 1,
+		borderColor: "#E5E7EB",
+		height: 56,
+		backgroundColor: "#F3F4F6",
+		borderRadius: 16,
+		paddingHorizontal: 16,
+	},
+});

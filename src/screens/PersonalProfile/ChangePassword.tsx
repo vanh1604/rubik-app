@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { Box } from "native-base";
-import BackBtn from "../components/BackBtn";
-import Header1 from "../components/Header1";
+import BackBtn from "../../components/BackBtn";
+import Header1 from "../../components/Header1";
 
 type Props = {};
 
