@@ -19,6 +19,7 @@ const AuthStack = () => {
     >
       <Stack.Screen name="Login" component={LogInScreen} />
       <Stack.Screen name="SignUp" component={RegisterScreen} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };

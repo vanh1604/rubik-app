@@ -4,7 +4,7 @@ import { Box, ScrollView, Text, useTheme } from "native-base";
 import { LeagueItemProps } from "./LeagueItem";
 import { ContentProps, leagueData } from "../../constansts/leagueInfor";
 import { useNavigation } from "@react-navigation/native";
-import Header from "../Header";
+
 import Header1 from "../Header1";
 import BackBtn from "../BackBtn";
 
