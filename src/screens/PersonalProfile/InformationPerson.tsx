@@ -13,6 +13,7 @@ type Props = {};
 
 const InformationPerson = (props: Props) => {
 	const navigation = useNavigation<any>();
+	const avatarImageURL = "https://images.pexels.com/photos/16200700/pexels-photo-16200700.jpeg?cs=srgb&dl=pexels-suki-lee-16200700.jpg&fm=jpg";
 	return (
 		<View
 			style={{
@@ -39,10 +40,11 @@ const InformationPerson = (props: Props) => {
 						title="Đổi hình đại diện"
 						Left={
 							<Image
-								source={require("../components/assets/Ellipse.png")}
+								source={{ uri: avatarImageURL }}
 								w={12}
 								h={12}
 								mr={4}
+								rounded={999}
 							/>
 						}
 						Right={

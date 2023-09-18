@@ -3,10 +3,16 @@ import React from "react";
 import { Box } from "native-base";
 import Header1 from "../components/Header1";
 import BackBtn from "../components/BackBtn";
+import PrimaryButton from "../components/PrimaryButton";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {};
 
 const UserProfile = (props: Props) => {
+	const navigation = useNavigation<any>();
+	const onUserInfoChange = () => {
+		navigation.goBack();
+	};
 	return (
 		<View
 			style={{
@@ -109,6 +115,10 @@ const UserProfile = (props: Props) => {
 						}}
 					/>
 				</Box>
+				<PrimaryButton
+					title={"Cập nhật"}
+					onPress={onUserInfoChange}
+				/>
 			</Box>
 		</View>
 	);

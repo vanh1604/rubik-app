@@ -64,7 +64,7 @@ const Root = () => {
 					/>
 					<Stack.Screen
 						name="AvatarChanger"
-						component={ForgotPassword1}
+						component={ChangePassword}
 					/>
 					<Stack.Screen
 						name="PasswordChanger"

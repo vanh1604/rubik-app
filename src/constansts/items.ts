@@ -14,24 +14,22 @@ export const quizzes = emptyArray.map((item: any, index: any) => {
 			{
 				answer: "A",
 				title: "Lorem ipsum 1",
-				isRightAnswer: true,
 			},
 			{
 				answer: "B",
 				title: "Lorem ipsum 2",
-				isRightAnswer: false,
 			},
 			{
 				answer: "C",
 				title: "Lorem ipsum 3",
-				isRightAnswer: false,
 			},
 			{
 				answer: "D",
 				title: "Lorem ipsum 4",
-				isRightAnswer: false,
 			},
 		],
 		order: index + 1,
+		rightAns: "B",
+		userAns: "",
 	};
 });

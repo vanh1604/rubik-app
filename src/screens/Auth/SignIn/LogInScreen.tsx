@@ -5,6 +5,8 @@ import { Box, Center, Row } from "native-base";
 import { flexbox } from "native-base/lib/typescript/theme/styled-system";
 import { IBMPlexMono_400Regular } from "@expo-google-fonts/ibm-plex-mono";
 import { useNavigation } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 type Props = {};
 
@@ -21,7 +23,7 @@ const LogInScreen = (props: Props) => {
 				alignItems={"center"}
 			>
 				<Image
-					source={require("../components/assets/Capa_1.png")}
+					source={require("../../../components/assets/Capa_1.png")}
 					style={{ width: 62.4, height: 64 }}
 				/>
 			</Box>
@@ -61,9 +63,10 @@ const LogInScreen = (props: Props) => {
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
 				>
-					<Image
-						source={require("../components/assets/call.png")}
-						style={{ width: 20, height: 20 }}
+					<MaterialIcons
+						name="email"
+						size={20}
+						color="#fff"
 					/>
 					<TextInput
 						placeholder="Số điện thoại"
@@ -91,9 +94,10 @@ const LogInScreen = (props: Props) => {
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
 				>
-					<Image
-						source={require("../components/assets/lock-closed.png")}
-						style={{ width: 20, height: 20 }}
+					<Entypo
+						name="lock"
+						size={20}
+						color="#fff"
 					/>
 					<TextInput
 						placeholder="Mật khẩu"

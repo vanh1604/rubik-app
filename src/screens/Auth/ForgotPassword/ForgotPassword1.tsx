@@ -2,6 +2,7 @@ import { TouchableOpacity, Image, StyleSheet, Text, TextInput } from "react-nati
 import React from "react";
 import BackgroundLayout from "../../../components/BackgroundLayout";
 import { Box } from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
 
 type Props = {};
 
@@ -43,9 +44,10 @@ const ForgotPassword1 = (props: Props) => {
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
 				>
-					<Image
-						source={require("../components/assets/call.png")}
-						style={{ width: 20, height: 20 }}
+					<MaterialIcons
+						name="email"
+						size={20}
+						color="#fff"
 					/>
 					<TextInput
 						placeholder="Số điện thoại"
@@ -72,10 +74,8 @@ const ForgotPassword1 = (props: Props) => {
 					justifyContent: "center",
 					alignItems: "center",
 					alignSelf: "center",
-					paddingTop: 10,
-					paddingBottom: 10,
-					paddingLeft: 20,
-					paddingRight: 20,
+					paddingVertical: 10,
+					paddingHorizontal: 20,
 				}}
 			>
 				<Text
