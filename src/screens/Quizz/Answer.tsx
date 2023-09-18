@@ -10,7 +10,7 @@ import Footer from "../../components/Quizz/Footer/Footer";
 import Header1 from "../../components/Header1";
 import BackBtn from "../../components/BackBtn";
 
-const Quizz = () => {
+const Answer = () => {
 	const navigation = useNavigation<any>();
 	const questions = quizzes;
 	const [order, setOrder] = useState(1);
@@ -19,42 +19,20 @@ const Quizz = () => {
 	const onOrderChange = (order: number) => {
 		let newOrder = order;
 		if (newOrder > maxOrder) {
-			//quizz complete handler
 			newOrder = maxOrder;
-			navigation.navigate("Answer");
+			navigation.navigate("HomeTab");
 		}
-		if (newOrder < minOrder) newOrder = minOrder; //First question
+		if (newOrder < minOrder) newOrder = minOrder;
 
 		setOrder(newOrder);
 	};
-	const [countdown, setCountdown] = useState(180); // Initial countdown time in seconds
 	const thisAnswer = questions[order - 1];
 	const ansOptions = thisAnswer.ans.map((item, index) => {
 		return {
 			...item,
 		};
 	});
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			if (countdown === 0) {
-				clearInterval(intervalId); // Dừng đếm ngược khi đạt 0
-			} else {
-				setCountdown(countdown - 1);
-			}
-		}, 1000); // Cập nhật mỗi 1 giây
 
-		return () => {
-			clearInterval(intervalId); // Hủy bỏ interval khi component bị hủy
-		};
-	}, [countdown]);
-	const timeFormatted = (countdown: number) => {
-		const minute = Math.floor(countdown / 60);
-		const second = countdown % 60;
-		const formatted = (n: number) => (n < 10 && n >= 0 ? `0${n}` : `${n}`);
-		const minuteFormatted = formatted(minute);
-		const secondFormatted = formatted(second);
-		return `${minuteFormatted}:${secondFormatted}`;
-	};
 	return (
 		<Column
 			bgColor={"white"}
@@ -62,19 +40,15 @@ const Quizz = () => {
 			width={"100%"}
 		>
 			<Header1
-				title="Câu hỏi"
+				title="Đáp án"
 				LeftBtn={BackBtn}
 			/>
 			<Box px={6}>
 				<Box
 					flexDirection={"row"}
-					justifyContent={"space-between"}
+					justifyContent={"flex-end"}
 					mt={6}
 				>
-					<Box flexDirection={"row"}>
-						<Text>Thời gian </Text>
-						<Text bold>{timeFormatted(countdown)}</Text>
-					</Box>
 					<Box height={"auto"}>
 						<Text
 							style={[
@@ -96,6 +70,7 @@ const Quizz = () => {
 					ans={ansOptions}
 					order={order}
 					title={thisAnswer.title}
+					isAnswering
 				/>
 				<Footer
 					isFirst={order == 1}
@@ -109,7 +84,7 @@ const Quizz = () => {
 						onPress: () => {
 							onOrderChange(order + 1);
 						},
-						endProgressTitle: "Nộp bài",
+						endProgressTitle: "Xong",
 					}}
 				/>
 			</Box>
@@ -117,6 +92,6 @@ const Quizz = () => {
 	);
 };
 
-export default Quizz;
+export default Answer;
 
 const styles = StyleSheet.create({});

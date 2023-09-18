@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { Box, Center, Text } from "native-base";
 import { useTheme } from "native-base";
-import { ArrowRight2 } from "iconsax-react-native";
+import { ArrowDown2, ArrowRight2 } from "iconsax-react-native";
 import Header1 from "../components/Header1";
 const Progress = () => {
 	const { colors } = useTheme();
@@ -24,7 +24,7 @@ const Progress = () => {
 					>
 						<Text padding={"2"}>Rubik 3x3x3 </Text>
 						<Box marginRight={"4"}>
-							<ArrowRight2
+							<ArrowDown2
 								size={"16"}
 								color={colors.muted[500]}
 							/>
@@ -45,7 +45,7 @@ const Progress = () => {
 					>
 						<Text padding={"2"}>Rubik 3x3x3 </Text>
 						<Box marginRight={"4"}>
-							<ArrowRight2
+							<ArrowDown2
 								size={"16"}
 								color={colors.muted[500]}
 							/>
@@ -66,7 +66,7 @@ const Progress = () => {
 					>
 						<Text padding={"2"}>Rubik 3x3x3 </Text>
 						<Box marginRight={"4"}>
-							<ArrowRight2
+							<ArrowDown2
 								size={"16"}
 								color={colors.muted[500]}
 							/>
@@ -87,7 +87,7 @@ const Progress = () => {
 					>
 						<Text padding={"2"}>Rubik 3x3x3 </Text>
 						<Box marginRight={"4"}>
-							<ArrowRight2
+							<ArrowDown2
 								size={"16"}
 								color={colors.muted[500]}
 							/>
@@ -108,7 +108,7 @@ const Progress = () => {
 					>
 						<Text padding={"2"}>Rubik 3x3x3 </Text>
 						<Box marginRight={"4"}>
-							<ArrowRight2
+							<ArrowDown2
 								size={"16"}
 								color={colors.muted[500]}
 							/>

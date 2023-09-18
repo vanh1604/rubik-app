@@ -11,24 +11,20 @@ export interface QuizzProps {
 }
 
 const QuizzDisplay = (props: QuizzProps) => {
-	const [selectedOption, setSelectedOption] = useState<QuizzItemProps | null>(
-		null
-	);
+	const [selectedOption, setSelectedOption] = useState<QuizzItemProps | null>(null);
 
 	const handleOptionClick = (option: QuizzItemProps) => {
 		setSelectedOption(option);
 	};
 	return (
 		<Box>
-			<Text style={[STYLES.title, { marginBottom: 4 }]}>
-				Câu {props.order}:
-			</Text>
+			<Text style={[STYLES.title, { marginBottom: 4 }]}>Câu {props.order}:</Text>
 			<Text mb={8}>{props.title}</Text>
 			{props.ans.map((item, index) => (
 				<QuizzItem
 					{...item}
 					key={index}
-					isUserChoice={selectedOption?.title === item.title}
+					isUserChoice={selectedOption?.title === item.title || (props.isAnswering && item.isRightAnswer)}
 					onPress={() => handleOptionClick(item)}
 				/>
 			))}

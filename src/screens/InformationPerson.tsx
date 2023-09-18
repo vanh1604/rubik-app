@@ -1,19 +1,9 @@
-import {
-	TouchableOpacity,
-	StyleSheet,
-	TextInput,
-	View,
-	TouchableOpacityProps,
-} from "react-native";
+import { TouchableOpacity, StyleSheet, View } from "react-native";
 import React from "react";
-import { Box, Center, Column, Image, Row, Switch, Text } from "native-base";
-import { flexbox } from "native-base/lib/typescript/theme/styled-system";
-import { IBMPlexMono_400Regular } from "@expo-google-fonts/ibm-plex-mono";
+import { Column, Image } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import Header from "../components/Header";
 import Header1 from "../components/Header1";
-import UserCard, { InfoCardProps } from "../components/Information/Card";
+import UserCard from "../components/Information/Card";
 import { informationNav } from "../constansts/UserInformation";
 import { useNavigation } from "@react-navigation/native";
 
@@ -51,6 +41,7 @@ const InformationPerson = (props: Props) => {
 								w={12}
 								h={12}
 								mr={4}
+								alt="tao bận"
 							/>
 						}
 						Right={
@@ -75,6 +66,7 @@ const InformationPerson = (props: Props) => {
 						<TouchableOpacity
 							{...info.parentOptions}
 							onPress={() => navigation.navigate(info.navigateTo)}
+							key={info.childrenOptions.title}
 						>
 							<UserCard {...info.childrenOptions} />
 						</TouchableOpacity>
