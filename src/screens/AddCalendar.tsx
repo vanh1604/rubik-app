@@ -7,11 +7,12 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { Text } from "native-base";
 import { STYLES, colors } from "../constansts/style";
 import Header1 from "../components/Header1";
+import { timeConvert } from "../constansts/functions";
 
 const AddCalendar = () => {
 	const navigation = useNavigation<any>();
 	const route = useRoute<any>();
-	const [date, setDate] = useState(new Date());
+	const [date, setDate] = useState<any>(route.params.initialTime ? timeConvert(route.params.initialTime) : new Date());
 	// console.log("date initial: ", new Date(`${route.params.initialTime}Z`));
 	const onChange = (event: any, selectedDate: any) => {
 		const currentDate = selectedDate || date;
@@ -24,6 +25,7 @@ const AddCalendar = () => {
 	};
 	const onSaveHandler = () => {
 		console.log("save");
+		navigation.goBack();
 	};
 	return (
 		<Box

@@ -47,12 +47,16 @@ const Main = (props: Props) => {
 				}
 			/>
 			<ScrollView>
-				<Box m={6}>
+				<Box
+					m={6}
+					mr={0}
+				>
 					<Center>
 						<Image
 							source={require("../../assets/image/Logo/main_logo.png")}
 							alt="Main logo"
 							borderRadius={16}
+							mr={6}
 						/>
 					</Center>
 					<CardItemBox

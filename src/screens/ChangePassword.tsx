@@ -21,7 +21,7 @@ const ChangePassword = (props: Props) => {
 			/>
 			<Box
 				width={"100%"}
-				m={6}
+				p={6}
 			>
 				<Text
 					style={{

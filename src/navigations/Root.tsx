@@ -26,6 +26,7 @@ import PrivacyPolicy from "../screens/PrivacyPolicy";
 import TabNav from "./TabNav";
 import AddCalendar from "../screens/AddCalendar";
 import LeagueContent from "../components/league/LeagueContent";
+import Answer from "../screens/Quizz/Answer";
 
 const Stack = createNativeStackNavigator();
 
@@ -76,6 +77,10 @@ const Root = () => {
 					<Stack.Screen
 						name="InformationChanger"
 						component={UserProfile}
+					/>
+					<Stack.Screen
+						name="Answer"
+						component={Answer}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>

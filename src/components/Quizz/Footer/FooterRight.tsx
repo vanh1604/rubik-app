@@ -19,7 +19,8 @@ const FooterRight = ({ isArrow, ...props }: FooterType) => {
 					justifyContent: "center",
 					alignItems: "center",
 				},
-			]}>
+			]}
+		>
 			{isArrow ? (
 				<AntDesign
 					name="arrowright"
@@ -27,7 +28,7 @@ const FooterRight = ({ isArrow, ...props }: FooterType) => {
 					color={textColor}
 				/>
 			) : (
-				<Text style={{ color: textColor }}>Nộp bài</Text>
+				<Text style={{ color: textColor }}>{props.endProgressTitle}</Text>
 			)}
 		</TouchableOpacity>
 	);

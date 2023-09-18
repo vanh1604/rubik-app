@@ -1,8 +1,4 @@
-import {
-	StyleSheet,
-	TouchableOpacity,
-	TouchableOpacityProps,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import React, { useState } from "react";
 import { Box, Row } from "native-base";
 import { Text } from "native-base";
@@ -12,7 +8,7 @@ import { color } from "native-base/lib/typescript/theme/styled-system";
 export interface QuizzItemProps extends TouchableOpacityProps {
 	title: string;
 	answer: string;
-	rightAnswer?: boolean;
+	isRightAnswer?: boolean;
 	isUserChoice?: boolean;
 }
 
@@ -27,12 +23,14 @@ const QuizzItem = (props: QuizzItemProps) => {
 					backgroundColor: props.isUserChoice ? colors.primary : "#fff",
 				},
 			]}
-			{...props}>
+			{...props}
+		>
 			<Row>
 				<Text
 					bold
 					mr={2}
-					color={textColor}>
+					color={textColor}
+				>
 					{props.answer}.{" "}
 				</Text>
 				<Text color={textColor}>{props.title}</Text>

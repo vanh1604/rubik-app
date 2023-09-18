@@ -6,14 +6,12 @@ import {
   TouchableOpacityProps,
 } from "react-native";
 import React from "react";
-import { Box, Center, Column, Image, Row, Switch, Text } from "native-base";
-import { flexbox } from "native-base/lib/typescript/theme/styled-system";
-import { IBMPlexMono_400Regular } from "@expo-google-fonts/ibm-plex-mono";
+import { Column, Image } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
 import Header1 from "../components/Header1";
-import UserCard, { InfoCardProps } from "../components/Information/Card";
+import UserCard from "../components/Information/Card";
 import { informationNav } from "../constansts/UserInformation";
 import { useNavigation } from "@react-navigation/native";
 

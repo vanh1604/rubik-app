@@ -1,10 +1,4 @@
-import {
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-	TouchableOpacityProps,
-	View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import React from "react";
 import { Box, IconButton } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
@@ -12,6 +6,7 @@ import { STYLES } from "../../../constansts/style";
 
 export interface FooterType extends TouchableOpacityProps {
 	isArrow?: boolean;
+	endProgressTitle?: string;
 }
 
 const FooterLeft = ({ isArrow, ...props }: FooterType) => {
@@ -28,7 +23,8 @@ const FooterLeft = ({ isArrow, ...props }: FooterType) => {
 					justifyContent: "center",
 					alignItems: "center",
 				},
-			]}>
+			]}
+		>
 			{isArrow && (
 				<AntDesign
 					name="arrowleft"
