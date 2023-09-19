@@ -35,16 +35,6 @@ const LogInScreen = (props: Props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  //   const handleLogin = () => {
-  //     if (email === fakeUser.username && pass === fakeUser.password) {
-  //       // Simulate a successful login; you can navigate to the next screen here
-  // 	  Alert.alert('Login Successful', 'Welcome!');
-  //     } else {
-  //       // Simulate a failed login attempt
-  //       setMessageShow(true);
-  //     }
-  //   };
-
   return (
     <BackgroundLayout>
       <Box paddingTop={121} justifyContent={"center"} alignItems={"center"}>
