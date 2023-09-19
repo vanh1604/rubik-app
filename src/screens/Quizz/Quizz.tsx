@@ -1,7 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Box, Column, Icon, IconButton, Progress, Row, Text } from "native-base";
+import { AntDesign } from "@expo/vector-icons";
+
 import { quizzes } from "../../constansts/items";
 import { STYLES, colors } from "../../constansts/style";
 import QuizzItem from "../../components/Quizz/QuizzItem";
@@ -9,6 +11,7 @@ import QuizzDisplay from "../../components/Quizz/QuizzDisplay";
 import Footer from "../../components/Quizz/Footer/Footer";
 import Header1 from "../../components/Header1";
 import BackBtn from "../../components/BackBtn";
+import NotificationBox from "../../components/NotificationBox";
 
 const Quizz = () => {
 	const navigation = useNavigation<any>();
@@ -16,7 +19,7 @@ const Quizz = () => {
 	const questions = quizzes;
 	const [order, setOrder] = useState(route.params.order || 1);
 	// console.log(route.params.order);
-
+	const [showModal, setShowModal] = useState(false);
 	const minOrder = 1;
 	const maxOrder = questions.length;
 	const onEndQuiz = () => {
@@ -35,6 +38,9 @@ const Quizz = () => {
 		}
 		// navigation.navigate("Quizz", { order: newOrder });
 		setOrder(newOrder);
+	};
+	const toggleNoti = () => {
+		setShowModal((prevState) => !prevState);
 	};
 	const [countdown, setCountdown] = useState(100); // Initial countdown time in seconds
 	const currentQuestion = questions[order - 1];
@@ -73,7 +79,15 @@ const Quizz = () => {
 		>
 			<Header1
 				title="Câu hỏi"
-				LeftBtn={BackBtn}
+				LeftBtn={() => (
+					<TouchableOpacity onPress={toggleNoti}>
+						<AntDesign
+							name="left"
+							size={24}
+							color="white"
+						/>
+					</TouchableOpacity>
+				)}
 			/>
 			<Box px={6}>
 				<Box
@@ -110,6 +124,13 @@ const Quizz = () => {
 					questions={questions}
 				/>
 			</Box>
+			<NotificationBox
+				title="Bạn có muốn hủy trắc nghiệm?"
+				hasCancelButton
+				showModal={showModal}
+				onConfirmHandler={navigation.goBack}
+				onCancelHandler={toggleNoti}
+			/>
 		</Column>
 	);
 };

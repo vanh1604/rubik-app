@@ -85,12 +85,10 @@ const LogInScreen = (props: Props) => {
 
 				<Box
 					width={"100%"}
-					height={37}
-					justifyContent={"center"}
-					alignItems={"center"}
 					flexDirection={"row"}
-					paddingTop={16}
-					paddingBottom={8}
+					alignItems={"center"}
+					paddingTop={4}
+					paddingBottom={2}
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
 				>
@@ -105,7 +103,7 @@ const LogInScreen = (props: Props) => {
 						style={{
 							color: "#FFF",
 							fontFamily: "IBMPlexMono_400Regular",
-							width: 306,
+							width: "100%",
 							height: 25,
 							fontSize: 14,
 							paddingLeft: 8,
@@ -115,7 +113,10 @@ const LogInScreen = (props: Props) => {
 					/>
 				</Box>
 
-				<TouchableOpacity style={{ alignSelf: "flex-end" }}>
+				<TouchableOpacity
+					style={{ alignSelf: "flex-end" }}
+					onPress={() => navigation.navigate("ForgotPassword")}
+				>
 					<Text
 						style={{
 							fontFamily: "IBMPlexMono_400Regular",

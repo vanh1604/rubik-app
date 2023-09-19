@@ -43,6 +43,10 @@ const Root = () => {
 					initialRouteName="HomeTab"
 				>
 					<Stack.Screen
+						name="ForgotPassword"
+						component={ForgotPassword3}
+					/>
+					<Stack.Screen
 						name="Login"
 						component={LogInScreen}
 					/>

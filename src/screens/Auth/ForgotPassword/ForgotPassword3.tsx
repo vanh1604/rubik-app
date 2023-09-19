@@ -1,68 +1,95 @@
 import { TouchableOpacity, Image, StyleSheet, Text, TextInput } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import BackgroundLayout from "../../../components/BackgroundLayout";
 import { Box } from "native-base";
+import { Entypo } from "@expo/vector-icons";
+import NotificationBox from "../../../components/NotificationBox";
+import { useNavigation } from "@react-navigation/native";
+import { colors, windowHeight } from "../../../constansts/style";
 
 type Props = {};
 
 const ForgotPassword3 = (props: Props) => {
+	const navigation = useNavigation<any>();
+	const [states, setStates] = useState({
+		passShow: false,
+		password: "",
+		passwordReEntered: "",
+		showModal: false,
+	});
+	const onStateChange = (key: string, value: any) => {
+		setStates((prevState) => {
+			return {
+				...prevState,
+				[key]: value,
+			};
+		});
+	};
+	const toggleNoti = () => {
+		onStateChange("showModal", !states.showModal);
+	};
+	const validatePassword = () => {
+		const isValidate = states.password === states.passwordReEntered;
+		if (isValidate) toggleNoti();
+	};
 	return (
 		<BackgroundLayout>
 			<Box
+				height={windowHeight}
 				justifyContent={"center"}
 				alignItems={"center"}
-				paddingTop={219}
-				px={6}
+				alignSelf={"center"}
+				mx={12}
 			>
 				<Box
 					width={"100%"}
-					height={37}
-					justifyContent={"center"}
-					alignItems={"center"}
 					flexDirection={"row"}
-					paddingTop={8}
-					paddingBottom={8}
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
+					pb={1}
 				>
-					<Image
-						source={require("../components/assets/lock-closed.png")}
-						style={{ width: 20, height: 20 }}
+					<Entypo
+						name="lock"
+						size={20}
+						color="#fff"
 					/>
 					<TextInput
 						placeholder="Nhập mật khẩu"
 						placeholderTextColor="rgba(255, 255, 255, 0.4)"
+						secureTextEntry={states.passShow}
 						style={{
 							color: "#FFF",
 							fontFamily: "IBMPlexMono_400Regular",
-							width: 306,
-							height: 25,
+							width: "100%",
 							fontSize: 14,
-							paddingLeft: 8,
-							marginTop: 5,
+							marginLeft: 6,
 						}}
+						value={states.password}
+						onChangeText={(text: string) => onStateChange("password", text)}
 					/>
 
-					<Image
-						source={require("../components/assets/eye-off.png")}
-						style={{ width: 20, height: 20 }}
-					/>
+					<TouchableOpacity onPress={() => onStateChange("passShow", !states.passShow)}>
+						<Entypo
+							name={states.passShow ? "eye" : "eye-with-line"}
+							size={20}
+							color={colors.lightGrey}
+						/>
+					</TouchableOpacity>
 				</Box>
 
 				<Box
 					width={"100%"}
-					height={37}
-					justifyContent={"center"}
 					alignItems={"center"}
 					flexDirection={"row"}
-					paddingTop={16}
-					paddingBottom={8}
 					borderColor={"#FFF"}
 					borderBottomWidth={1}
+					pb={1}
+					mt={4}
 				>
-					<Image
-						source={require("../components/assets/lock-closed.png")}
-						style={{ width: 20, height: 20 }}
+					<Entypo
+						name="lock"
+						size={20}
+						color="#fff"
 					/>
 					<TextInput
 						placeholder="Nhập lại mật khẩu"
@@ -70,48 +97,52 @@ const ForgotPassword3 = (props: Props) => {
 						style={{
 							color: "#FFF",
 							fontFamily: "IBMPlexMono_400Regular",
-							width: 306,
-							height: 25,
 							fontSize: 14,
-							paddingLeft: 8,
-							marginTop: 5,
+							width: "100%",
+							marginLeft: 6,
 						}}
-						secureTextEntry
+						secureTextEntry={states.passShow}
+						value={states.passwordReEntered}
+						onChangeText={(text: string) => onStateChange("passwordReEntered", text)}
 					/>
 
-					<Image
-						source={require("../components/assets/eye-off.png")}
-						style={{ width: 20, height: 20 }}
-					/>
+					<TouchableOpacity onPress={() => onStateChange("passShow", !states.passShow)}>
+						<Entypo
+							name={states.passShow ? "eye" : "eye-with-line"}
+							size={20}
+							color={colors.lightGrey}
+						/>
+					</TouchableOpacity>
 				</Box>
+				<TouchableOpacity
+					style={{
+						backgroundColor: "#FFF",
+						borderRadius: 100,
+						paddingVertical: 10,
+						paddingHorizontal: 20,
+						marginTop: 109,
+					}}
+					onPress={validatePassword}
+				>
+					<Text
+						style={{
+							color: "#652FAE",
+							textAlign: "center",
+							fontFamily: "IBMPlexMono_500Medium",
+						}}
+					>
+						ĐỔI MẬT KHẨU
+					</Text>
+				</TouchableOpacity>
 			</Box>
 
-			<TouchableOpacity
-				style={{
-					width: 141,
-					height: 41,
-					backgroundColor: "#FFF",
-					borderRadius: 100,
-					justifyContent: "center",
-					alignItems: "center",
-					alignSelf: "center",
-					paddingTop: 10,
-					paddingBottom: 10,
-					paddingLeft: 20,
-					paddingRight: 20,
-					marginTop: 109,
+			<NotificationBox
+				title="Đổi mật khẩu thành công. Đăng nhập lại để tiếp tục"
+				onConfirmHandler={() => {
+					navigation.navigate("Login");
 				}}
-			>
-				<Text
-					style={{
-						color: "#652FAE",
-						textAlign: "center",
-						fontFamily: "IBMPlexMono_500Medium",
-					}}
-				>
-					ĐỔI MẬT KHẨU
-				</Text>
-			</TouchableOpacity>
+				showModal={states.showModal}
+			/>
 		</BackgroundLayout>
 	);
 };
