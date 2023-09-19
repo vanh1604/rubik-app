@@ -11,6 +11,7 @@ export type BottomTabsParams = {
 export type AuthStackParams = {
   Login: undefined;
   SignUp: undefined;
+  Home: undefined;
 };
 
 export type RootStackParams = {
