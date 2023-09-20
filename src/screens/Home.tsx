@@ -6,6 +6,7 @@ import CardItemBox from "../components/Main/CardItemBox";
 import { mockupData } from "../constansts/items";
 import { Ionicons } from "@expo/vector-icons";
 import HomeHeader from "../components/HeaderHome";
+import NotificationBox from "../components/NotificationBox";
 
 type Props = {};
 
