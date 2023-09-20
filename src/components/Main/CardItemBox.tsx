@@ -14,13 +14,15 @@ const CardItemBox = (props: ItemBoxProps) => {
 			<Text
 				bold
 				fontSize={16}
-				mb={1}>
+				mb={1}
+			>
 				{props.title}
 			</Text>
 			<FlatList
 				data={props.data}
 				renderItem={({ item }) => <CardItem {...item} />}
 				horizontal
+				pb={6}
 			/>
 		</Box>
 	);

@@ -1,9 +1,4 @@
-import {
-	StyleSheet,
-	TouchableOpacity,
-	TouchableOpacityProps,
-	View,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import React from "react";
 import { Card, Image, Text } from "native-base";
 import { useNavigation } from "@react-navigation/native";
@@ -20,13 +15,14 @@ const CardItem = (props: CardItemProps) => {
 		height: 88,
 	};
 	const toQuizzHandler = () => {
-		navigation.navigate("Quizz");
+		navigation.navigate("Quizz", { order: 1 });
 	};
 	return (
 		<TouchableOpacity
 			style={{ width: cardImageSize.width, marginRight: 8 }}
 			{...props}
-			onPress={toQuizzHandler}>
+			onPress={toQuizzHandler}
+		>
 			<Image
 				source={props.cardImage}
 				width={"100%"}
@@ -37,7 +33,8 @@ const CardItem = (props: CardItemProps) => {
 			<Text
 				fontSize={12}
 				fontWeight={"400"}
-				fontStyle={"normal"}>
+				fontStyle={"normal"}
+			>
 				{props.title}
 			</Text>
 		</TouchableOpacity>

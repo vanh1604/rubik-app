@@ -71,6 +71,7 @@ const Answer = () => {
 					order={order}
 					title={thisAnswer.title}
 					isAnswering
+					questions={questions}
 				/>
 				<Footer
 					isFirst={order == 1}

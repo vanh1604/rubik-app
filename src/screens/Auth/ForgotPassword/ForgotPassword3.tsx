@@ -1,6 +1,6 @@
 import { TouchableOpacity, Image, StyleSheet, Text, TextInput } from "react-native";
 import React from "react";
-import BackgroundLayout from "../components/BackgroundLayout";
+import BackgroundLayout from "../../../components/BackgroundLayout";
 import { Box } from "native-base";
 
 type Props = {};

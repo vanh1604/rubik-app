@@ -1,8 +1,8 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { ScrollView, Text } from "native-base";
-import Header1 from "../components/Header1";
-import BackBtn from "../components/BackBtn";
+import Header1 from "../../components/Header1";
+import BackBtn from "../../components/BackBtn";
 
 type Props = {};
 

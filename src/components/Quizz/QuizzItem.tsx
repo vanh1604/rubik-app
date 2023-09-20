@@ -10,6 +10,7 @@ export interface QuizzItemProps extends TouchableOpacityProps {
 	answer: string;
 	isRightAnswer?: boolean;
 	isUserChoice?: boolean;
+	order?: number;
 }
 
 const QuizzItem = (props: QuizzItemProps) => {

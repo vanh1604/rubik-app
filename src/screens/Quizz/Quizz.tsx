@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Box, Column, Icon, IconButton, Progress, Row, Text } from "native-base";
 import { quizzes } from "../../constansts/items";
 import { STYLES, colors } from "../../constansts/style";
@@ -12,24 +12,33 @@ import BackBtn from "../../components/BackBtn";
 
 const Quizz = () => {
 	const navigation = useNavigation<any>();
+	const route = useRoute<any>();
 	const questions = quizzes;
-	const [order, setOrder] = useState(1);
+	const [order, setOrder] = useState(route.params.order || 1);
+	// console.log(route.params.order);
+
 	const minOrder = 1;
 	const maxOrder = questions.length;
+	const onEndQuiz = () => {
+		navigation.replace("Answer");
+	};
 	const onOrderChange = (order: number) => {
 		let newOrder = order;
+		console.log(newOrder);
 		if (newOrder > maxOrder) {
 			//quizz complete handler
 			newOrder = maxOrder;
-			navigation.navigate("Answer");
+			onEndQuiz();
 		}
-		if (newOrder < minOrder) newOrder = minOrder; //First question
-
+		if (newOrder < minOrder) {
+			newOrder = minOrder; //First question
+		}
+		// navigation.navigate("Quizz", { order: newOrder });
 		setOrder(newOrder);
 	};
-	const [countdown, setCountdown] = useState(180); // Initial countdown time in seconds
-	const thisAnswer = questions[order - 1];
-	const ansOptions = thisAnswer.ans.map((item, index) => {
+	const [countdown, setCountdown] = useState(100); // Initial countdown time in seconds
+	const currentQuestion = questions[order - 1];
+	const ansOptions = currentQuestion.ans.map((item, index) => {
 		return {
 			...item,
 		};
@@ -37,6 +46,7 @@ const Quizz = () => {
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			if (countdown === 0) {
+				onEndQuiz();
 				clearInterval(intervalId); // Dừng đếm ngược khi đạt 0
 			} else {
 				setCountdown(countdown - 1);
@@ -95,22 +105,9 @@ const Quizz = () => {
 				<QuizzDisplay
 					ans={ansOptions}
 					order={order}
-					title={thisAnswer.title}
-				/>
-				<Footer
-					isFirst={order == 1}
-					isLast={order == questions.length}
-					footerLeftOptions={{
-						onPress: () => {
-							onOrderChange(order - 1);
-						},
-					}}
-					footerRightOptions={{
-						onPress: () => {
-							onOrderChange(order + 1);
-						},
-						endProgressTitle: "Nộp bài",
-					}}
+					title={currentQuestion.title}
+					onOrderChange={onOrderChange}
+					questions={questions}
 				/>
 			</Box>
 		</Column>
