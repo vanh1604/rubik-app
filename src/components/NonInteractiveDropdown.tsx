@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useTheme } from "native-base";
 import { ArrowDown2, PlayCircle, TickCircle } from "iconsax-react-native";
-import { colors } from "../constansts/style";
-import ContentDropdown from "./ContentDropdown";
 export interface NonInteractiveDropdownProps {
   title: string;
   content: string[];
