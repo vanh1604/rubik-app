@@ -19,3 +19,10 @@ export const timeConvert = (time: string) => {
 	}
 	return;
 };
+
+export const timeFormat = (time: Date) => {
+	const format = (number: number) => {
+		return `${number > 10 ? number : `0${number}`}`;
+	};
+	return `${format(time.getHours())}:${format(time.getMinutes())}`;
+};

@@ -7,12 +7,16 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { Text } from "native-base";
 import { STYLES, colors } from "../constansts/style";
 import Header1 from "../components/Header1";
-import { timeConvert } from "../constansts/functions";
+import { timeConvert, timeFormat } from "../constansts/functions";
+import { useDispatch } from "react-redux";
+import { addCalendar, updateCalendar } from "../store/calendar.reducer";
 
 const AddCalendar = () => {
 	const navigation = useNavigation<any>();
 	const route = useRoute<any>();
-	const [date, setDate] = useState<any>(route.params.initialTime ? timeConvert(route.params.initialTime) : new Date());
+	const dispatch = useDispatch<any>();
+	const isUpdate = !!route.params.initialTime;
+	const [date, setDate] = useState<any>(isUpdate ? timeConvert(route.params.initialTime) : new Date());
 	// console.log("date initial: ", new Date(`${route.params.initialTime}Z`));
 	const onChange = (event: any, selectedDate: any) => {
 		const currentDate = selectedDate || date;
@@ -25,6 +29,11 @@ const AddCalendar = () => {
 	};
 	const onSaveHandler = () => {
 		console.log("save");
+		if (isUpdate) {
+			dispatch(updateCalendar({ index: route.params.index, value: timeFormat(date) }));
+		} else {
+			dispatch(addCalendar(timeFormat(date)));
+		}
 		navigation.goBack();
 	};
 	return (
@@ -35,12 +44,18 @@ const AddCalendar = () => {
 			<Header1
 				title="Thêm lịch"
 				LeftBtn={() => (
-					<TouchableOpacity onPress={onCancelHandler}>
+					<TouchableOpacity
+						onPress={onCancelHandler}
+						style={{ marginLeft: 4 }}
+					>
 						<Text color={"#fff"}>Hủy</Text>
 					</TouchableOpacity>
 				)}
 				RightBtn={() => (
-					<TouchableOpacity onPress={onSaveHandler}>
+					<TouchableOpacity
+						onPress={onSaveHandler}
+						style={{ marginRight: 4 }}
+					>
 						<Text color={"#fff"}>Lưu</Text>
 					</TouchableOpacity>
 				)}
@@ -66,7 +81,7 @@ const AddCalendar = () => {
 				</Text>
 			</Box>
 			<MultipleChoiceBox options={["Mọi Thứ Hai", "Mọi Thứ Ba", "Mọi Thứ Tư", "Mọi Thứ Năm", "Mọi Thứ Sáu", "Mọi Thứ Bảy", "Mọi Chủ Nhật"]} />
-			{!(route.params.initialTime || route.params) && (
+			{isUpdate && (
 				<Center
 					mx={6}
 					position={"absolute"}

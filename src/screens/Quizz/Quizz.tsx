@@ -42,7 +42,7 @@ const Quizz = () => {
 	const toggleNoti = () => {
 		setShowModal((prevState) => !prevState);
 	};
-	const [countdown, setCountdown] = useState(100); // Initial countdown time in seconds
+	const [countdown, setCountdown] = useState(180); // Initial countdown time in seconds
 	const currentQuestion = questions[order - 1];
 	const ansOptions = currentQuestion.ans.map((item, index) => {
 		return {

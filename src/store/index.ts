@@ -4,12 +4,14 @@ import type { TypedUseSelectorHook } from "react-redux";
 import { errorReducer } from "./error.reducer";
 import { loadingReducer } from "./loading.reducer";
 import { answerReducer } from "./answer.reducer";
+import { calendarReducer } from "./calendar.reducer";
 
 const store = configureStore({
 	reducer: {
 		error: errorReducer,
 		loading: loadingReducer,
 		answer: answerReducer,
+		calendars: calendarReducer,
 	},
 });
 

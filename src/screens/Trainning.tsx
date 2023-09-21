@@ -6,11 +6,25 @@ import TrainingItem from "../components/Training/TrainingItem";
 import Header1 from "../components/Header1";
 import { Add } from "iconsax-react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { timeFormat } from "../constansts/functions";
+import { RootState } from "../store";
 
 const Trainning = () => {
 	const { colors } = useTheme();
 	const navigation = useNavigation<any>();
 
+	const calendarsDisplay = useSelector<RootState>((state) =>
+		state.calendars.map((item, index) => (
+			<TrainingItem
+				time={item}
+				key={item}
+				index={index}
+			/>
+		))
+	);
+	const calendars = useSelector<RootState>((state) => state.calendars);
+	console.log(calendars);
 	return (
 		<Column flex={1}>
 			<Header1
@@ -24,11 +38,7 @@ const Trainning = () => {
 					</TouchableOpacity>
 				)}
 			/>
-			<Box flex={1}>
-				<TrainingItem time="12:00" />
-				<TrainingItem time="17:00" />
-				<TrainingItem time="21:00" />
-			</Box>
+			<Box flex={1}>{calendarsDisplay}</Box>
 		</Column>
 	);
 };

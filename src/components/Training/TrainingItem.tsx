@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export interface TrainingItemProps extends TouchableOpacityProps {
 	time: string;
+	index: number;
 }
 
 const TrainingItem = (props: TrainingItemProps) => {
@@ -20,6 +21,7 @@ const TrainingItem = (props: TrainingItemProps) => {
 			onPress={() =>
 				navigation.navigate("TimePicker", {
 					initialTime: props.time,
+					index: props.index,
 				})
 			}
 		>
