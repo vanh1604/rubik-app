@@ -2,7 +2,7 @@ import { Center, Box, Row, Text, Column, ScrollView } from "native-base";
 import React, { useState } from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useTheme } from "native-base";
-import { ArrowDown2, PlayCircle, TickCircle } from "iconsax-react-native";
+import { ArrowDown2, ArrowUp2, PlayCircle, TickCircle } from "iconsax-react-native";
 export interface NonInteractiveDropdownProps {
 	title: string;
 	content: string[];
@@ -27,15 +27,26 @@ const NonInteractiveDropdown: React.FC<NonInteractiveDropdownProps> = ({ title, 
 				>
 					<Text style={styles.dropdownHeader}>{title}</Text>
 					<Box>
-						<ArrowDown2
-							size="20"
-							color="black"
-							style={styles.button}
-						/>
+						{isOpen ? (
+							<ArrowUp2
+								size="20"
+								color="black"
+								style={styles.button}
+							/>
+						) : (
+							<ArrowDown2
+								size="20"
+								color="black"
+								style={styles.button}
+							/>
+						)}
 					</Box>
 				</TouchableOpacity>
 				{isOpen && (
-					<Box>
+					<Box
+						w={"95%"}
+						px={1}
+					>
 						{content.map((item, index) => (
 							<Box
 								borderBottomColor="black"
