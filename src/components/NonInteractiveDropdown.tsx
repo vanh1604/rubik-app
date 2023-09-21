@@ -1,79 +1,20 @@
-import { Center, Box, Row, Text } from "native-base";
+import { Center, Box, Row, Text, Column, ScrollView } from "native-base";
 import React, { useState } from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { useTheme } from "native-base";
 import { ArrowDown2, PlayCircle, TickCircle } from "iconsax-react-native";
 import { colors } from "../constansts/style";
-export interface DropdownProps {
+import ContentDropdown from "./ContentDropdown";
+export interface NonInteractiveDropdownProps {
   title: string;
+  content: string[];
 }
-const NonInteractiveDropdown: any = (props: DropdownProps) => {
+const NonInteractiveDropdown: React.FC<NonInteractiveDropdownProps> = ({
+  title,
+  content,
+}) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [isComp, setIsComp] = useState(false);
   const { colors } = useTheme();
-  const hanldeIsComp = () => {
-    setIsComp(true);
-    console.log("succes");
-  };
-  // Content to display when the dropdown is open
-  const dropdownContent = (
-    <Box>
-      <Box borderBottomColor="black" borderBottomWidth="1" py="5">
-        <TouchableOpacity onPress={hanldeIsComp}>
-          <Box>
-            <Row>
-              <Box>
-                <Text>Hướng dẫn giải rubik cho người mới bắt đầu</Text>
-                <Row mt="5" alignItems="center">
-                  <PlayCircle size="20" color="#FF8A65" />
-                  <Text ml="2">24:10</Text>
-                </Row>
-              </Box>
-              <Box>
-                <TickCircle size="20" color="green" />
-              </Box>
-            </Row>
-          </Box>
-        </TouchableOpacity>
-      </Box>
-      <Box borderBottomColor="black" borderBottomWidth="1" py="5">
-        <TouchableOpacity onPress={hanldeIsComp}>
-          <Box>
-            <Row>
-              <Box>
-                <Text>Hướng dẫn giải rubik cho người mới bắt đầu</Text>
-                <Row mt="5" alignItems="center">
-                  <PlayCircle size="20" color="#FF8A65" />
-                  <Text ml="2">24:10</Text>
-                </Row>
-              </Box>
-              <Box>
-                <TickCircle size="20" color="green" />
-              </Box>
-            </Row>
-          </Box>
-        </TouchableOpacity>
-      </Box>
-      <Box py="5">
-        <TouchableOpacity onPress={hanldeIsComp}>
-          <Box>
-            <Row>
-              <Box>
-                <Text>Hướng dẫn giải rubik cho người mới bắt đầu</Text>
-                <Row mt="5" alignItems="center">
-                  <PlayCircle size="20" color="#FF8A65" />
-                  <Text ml="2">24:10</Text>
-                </Row>
-              </Box>
-              <Box>
-                <TickCircle size="20" color="green" />
-              </Box>
-            </Row>
-          </Box>
-        </TouchableOpacity>
-      </Box>
-    </Box>
-  );
 
   return (
     <Box alignItems="center" justifyContent="center">
@@ -82,13 +23,35 @@ const NonInteractiveDropdown: any = (props: DropdownProps) => {
           onPress={() => setIsOpen(!isOpen)}
           style={styles.dropdownContent}
         >
-          <Text style={styles.dropdownHeader}>{props.title}</Text>
+          <Text style={styles.dropdownHeader}>{title}</Text>
           <Box>
             <ArrowDown2 size="20" color="black" style={styles.button} />
           </Box>
         </TouchableOpacity>
-
-        {isOpen && dropdownContent}
+        {isOpen && (
+          <Box>
+            {content.map((item, index) => (
+              <Box borderBottomColor="black" borderBottomWidth="1" py="5">
+                <TouchableOpacity>
+                  <Box>
+                    <Row>
+                      <Box>
+                        <Text key={index}>{item}</Text>
+                        <Row mt="5" alignItems="center">
+                          <PlayCircle size="20" color="#FF8A65" />
+                          <Text ml="2">24:10</Text>
+                        </Row>
+                      </Box>
+                      <Box>
+                        <TickCircle size="20" color="green" />
+                      </Box>
+                    </Row>
+                  </Box>
+                </TouchableOpacity>
+              </Box>
+            ))}
+          </Box>
+        )}
       </Center>
     </Box>
   );

@@ -11,7 +11,6 @@ import Quizz from "../screens/Quizz/Quizz";
 
 import LogInScreen from "../screens/Auth/SignIn/LogInScreen";
 
-
 import ChangePassword from "../screens/PersonalProfile/ChangePassword";
 import UserProfile from "../screens/Profile";
 import PrivacyPolicy from "../screens/PersonalProfile/PrivacyPolicy";
@@ -19,6 +18,7 @@ import TabNav from "./TabNav";
 import AddCalendar from "../screens/AddCalendar";
 import LeagueContent from "../components/league/LeagueContent";
 import Answer from "../screens/Quizz/Answer";
+import ForgotPassword1 from "../screens/Auth/ForgotPassword/ForgotPassword1";
 
 const Stack = createNativeStackNavigator();
 
