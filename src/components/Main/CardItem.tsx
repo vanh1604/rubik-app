@@ -2,10 +2,13 @@ import { StyleSheet, TouchableOpacity, TouchableOpacityProps, View } from "react
 import React from "react";
 import { Card, Image, Text } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import { quizzes } from "../../constansts/items";
+
 export interface CardItemProps extends TouchableOpacityProps {
 	id?: string;
 	title: string;
 	cardImage: any;
+	quizzes: typeof quizzes;
 }
 
 const CardItem = (props: CardItemProps) => {
@@ -15,7 +18,7 @@ const CardItem = (props: CardItemProps) => {
 		height: 88,
 	};
 	const toQuizzHandler = () => {
-		navigation.navigate("Quizz", { order: 1 });
+		navigation.navigate("Quizz", { quizzes: props.quizzes });
 	};
 	return (
 		<TouchableOpacity

@@ -26,8 +26,8 @@ const LogInScreen = (props: Props) => {
 			setMessageShow(true);
 		}
 	};
-	const [email, setEmail] = useState("");
-	const [pass, setPass] = useState("");
+	const [email, setEmail] = useState("Dreamabtme@gmail.com");
+	const [pass, setPass] = useState("vanh1604");
 
 	return (
 		<BackgroundLayout>
@@ -83,6 +83,7 @@ const LogInScreen = (props: Props) => {
 					<TextInput
 						placeholder="Email"
 						placeholderTextColor="rgba(255, 255, 255, 0.4)"
+						keyboardType="email-address"
 						style={{
 							color: "#FFF",
 							fontFamily: "IBMPlexMono_400Regular",

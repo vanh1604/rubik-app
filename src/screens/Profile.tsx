@@ -5,6 +5,7 @@ import Header1 from "../components/Header1";
 import BackBtn from "../components/BackBtn";
 import PrimaryButton from "../components/PrimaryButton";
 import { useNavigation } from "@react-navigation/native";
+import { windowHeight } from "../constansts/style";
 
 type Props = {};
 
@@ -13,6 +14,7 @@ const UserProfile = (props: Props) => {
 	const onUserInfoChange = () => {
 		navigation.goBack();
 	};
+
 	return (
 		<View
 			style={{
@@ -29,6 +31,8 @@ const UserProfile = (props: Props) => {
 				width={"100%"}
 				mt={6}
 				px={6}
+				h={"80%"}
+				// pb={50}
 			>
 				<Text
 					style={{
@@ -78,10 +82,8 @@ const UserProfile = (props: Props) => {
 						style={{
 							color: "#262626",
 							fontFamily: "IBMPlexMono_400Regular",
-							height: 40,
 							fontSize: 16,
-							paddingTop: 8,
-							paddingBottom: 8,
+							paddingVertical: 8,
 							paddingHorizontal: 12,
 						}}
 					/>

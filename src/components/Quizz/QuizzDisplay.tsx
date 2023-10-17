@@ -11,24 +11,19 @@ export interface QuizzProps {
 	ans: QuizzItemProps[];
 	title: string;
 	order: number;
-	isAnswering?: boolean;
+	isQuizRightAns?: boolean;
 	onOrderChange?: any;
 	questions?: any;
 }
 
 const QuizzDisplay = (props: QuizzProps) => {
-	// const [selectedOption, setSelectedOption] = useState<QuizzItemProps | null>(null);
-	// console.log(props.order);
 	const questions: any = useSelector<any>((state) => state.answer);
 	const currentQuestion: (typeof questions)[0] = questions[props.order - 1];
 	const dispatch = useDispatch();
 	const handleOptionClick = (option: QuizzItemProps) => {
-		console.log(option.answer);
-		if (!props.isAnswering) {
+		if (!props.isQuizRightAns) {
 			// setSelectedOption(option);
-			console.log("set");
 			dispatch(setUserChoice(option));
-			console.log(currentQuestion.userAns);
 		}
 	};
 	return (
@@ -36,8 +31,7 @@ const QuizzDisplay = (props: QuizzProps) => {
 			<Text style={[STYLES.title, { marginBottom: 4 }]}>Câu {props.order}:</Text>
 			<Text mb={8}>{props.title}</Text>
 			{props.ans.map((item, index) => {
-				// console.log(currentQuestion.userAns);
-				const isBold = (!props.isAnswering && currentQuestion.userAns === item.answer) || (props.isAnswering && item.answer == quizzes[item.order || 0].rightAns);
+				const isBold = (!props.isQuizRightAns && currentQuestion.userAns === item.answer) || (props.isQuizRightAns && item.answer == currentQuestion.rightAns);
 				return (
 					<QuizzItem
 						{...item}
@@ -48,7 +42,7 @@ const QuizzDisplay = (props: QuizzProps) => {
 					/>
 				);
 			})}
-			{!props.isAnswering && (
+			{!props.isQuizRightAns && (
 				<Footer
 					isFirst={props.order == 1}
 					isLast={props.order == props.questions.length}

@@ -6,25 +6,26 @@ import TrainingItem from "../components/Training/TrainingItem";
 import Header1 from "../components/Header1";
 import { Add } from "iconsax-react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
-import { timeFormat } from "../constansts/functions";
+import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
 const Trainning = () => {
 	const { colors } = useTheme();
 	const navigation = useNavigation<any>();
+	const calendars: any = useSelector<RootState>((state) => {
+		// console.log(state.calendars);
+		return state.calendars.filter((calendar) => !!calendar);
+	});
+	const calendarsDisplay = calendars.map((item: any, index: number) => (
+		<TrainingItem
+			index={index}
+			time={item}
+			key={index}
+		/>
+	));
 
-	const calendarsDisplay = useSelector<RootState>((state) =>
-		state.calendars.map((item, index) => (
-			<TrainingItem
-				time={item}
-				key={item}
-				index={index}
-			/>
-		))
-	);
-	const calendars = useSelector<RootState>((state) => state.calendars);
 	console.log(calendars);
+
 	return (
 		<Column flex={1}>
 			<Header1

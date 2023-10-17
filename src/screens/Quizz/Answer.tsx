@@ -9,18 +9,21 @@ import QuizzDisplay from "../../components/Quizz/QuizzDisplay";
 import Footer from "../../components/Quizz/Footer/Footer";
 import Header1 from "../../components/Header1";
 import BackBtn from "../../components/BackBtn";
+import { clearUserAns } from "../../store/answer.reducer";
+import { useDispatch } from "react-redux";
 
 const Answer = () => {
 	const navigation = useNavigation<any>();
 	const questions = quizzes;
 	const [order, setOrder] = useState(1);
+	const dispatch = useDispatch();
 	const minOrder = 1;
 	const maxOrder = questions.length;
 	const onOrderChange = (order: number) => {
 		let newOrder = order;
 		if (newOrder > maxOrder) {
 			newOrder = maxOrder;
-			navigation.navigate("HomeTab");
+			navigation.goBack();
 		}
 		if (newOrder < minOrder) newOrder = minOrder;
 
@@ -31,6 +34,9 @@ const Answer = () => {
 		return {
 			...item,
 		};
+	});
+	useEffect(() => {
+		dispatch(clearUserAns());
 	});
 
 	return (
@@ -70,7 +76,7 @@ const Answer = () => {
 					ans={ansOptions}
 					order={order}
 					title={thisAnswer.title}
-					isAnswering
+					isQuizRightAns
 					questions={questions}
 				/>
 				<Footer

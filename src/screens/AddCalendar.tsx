@@ -9,7 +9,7 @@ import { STYLES, colors } from "../constansts/style";
 import Header1 from "../components/Header1";
 import { timeConvert, timeFormat } from "../constansts/functions";
 import { useDispatch } from "react-redux";
-import { addCalendar, updateCalendar } from "../store/calendar.reducer";
+import { addCalendar, removeCalendar, updateCalendar } from "../store/calendar.reducer";
 
 const AddCalendar = () => {
 	const navigation = useNavigation<any>();
@@ -28,12 +28,15 @@ const AddCalendar = () => {
 		navigation.goBack();
 	};
 	const onSaveHandler = () => {
-		console.log("save");
 		if (isUpdate) {
 			dispatch(updateCalendar({ index: route.params.index, value: timeFormat(date) }));
 		} else {
 			dispatch(addCalendar(timeFormat(date)));
 		}
+		navigation.goBack();
+	};
+	const deleteCalendarHandle = () => {
+		dispatch(removeCalendar(route.params.initialTime));
 		navigation.goBack();
 	};
 	return (
@@ -99,6 +102,7 @@ const AddCalendar = () => {
 								borderRadius: 100,
 							},
 						]}
+						onPress={deleteCalendarHandle}
 					>
 						<Center>
 							<Text color={"#fff"}>Xóa lịch</Text>

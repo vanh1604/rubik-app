@@ -1,9 +1,9 @@
 import { SafeAreaView, StyleSheet, Touchable, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import BackgroundLayout from "../components/BackgroundLayout";
 import { Box, Center, Image, Row, ScrollView, Stack, Text } from "native-base";
 import CardItemBox from "../components/Main/CardItemBox";
-import { mockupData } from "../constansts/items";
+import { mockupData, quizzes } from "../constansts/items";
 import { Ionicons } from "@expo/vector-icons";
 import HomeHeader from "../components/HeaderHome";
 import NotificationBox from "../components/NotificationBox";
@@ -13,6 +13,9 @@ type Props = {};
 const Main = (props: Props) => {
 	const userName = "Hehehe";
 	const userAva = "https://cdn.tuoitre.vn/thumb_w/730/2021/7/10/screen-shot-2021-07-10-at-114922-1625892571909294221772.png";
+	useEffect(() => {
+		console.log(quizzes);
+	});
 	return (
 		<Box>
 			<HomeHeader

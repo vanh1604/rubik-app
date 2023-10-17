@@ -8,7 +8,7 @@ export interface NonInteractiveDropdownProps {
 	content: string[];
 }
 const NonInteractiveDropdown: React.FC<NonInteractiveDropdownProps> = ({ title, content }) => {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 	const { colors } = useTheme();
 
 	return (

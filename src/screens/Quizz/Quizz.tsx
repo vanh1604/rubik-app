@@ -12,11 +12,14 @@ import Footer from "../../components/Quizz/Footer/Footer";
 import Header1 from "../../components/Header1";
 import BackBtn from "../../components/BackBtn";
 import NotificationBox from "../../components/NotificationBox";
+import { setQuizData } from "../../store/answer.reducer";
+import { useDispatch } from "react-redux";
 
 const Quizz = () => {
 	const navigation = useNavigation<any>();
 	const route = useRoute<any>();
-	const questions = quizzes;
+	const [questions, setQuestions] = useState<any>(route.params.quizzes);
+	const dispatch = useDispatch();
 	const [order, setOrder] = useState(route.params.order || 1);
 	// console.log(route.params.order);
 	const [showModal, setShowModal] = useState(false);
@@ -27,7 +30,6 @@ const Quizz = () => {
 	};
 	const onOrderChange = (order: number) => {
 		let newOrder = order;
-		console.log(newOrder);
 		if (newOrder > maxOrder) {
 			//quizz complete handler
 			newOrder = maxOrder;
@@ -44,7 +46,7 @@ const Quizz = () => {
 	};
 	const [countdown, setCountdown] = useState(180); // Initial countdown time in seconds
 	const currentQuestion = questions[order - 1];
-	const ansOptions = currentQuestion.ans.map((item, index) => {
+	const ansOptions = currentQuestion.ans.map((item: any) => {
 		return {
 			...item,
 		};
@@ -63,6 +65,10 @@ const Quizz = () => {
 			clearInterval(intervalId); // Hủy bỏ interval khi component bị hủy
 		};
 	}, [countdown]);
+	useEffect(() => {
+		dispatch(setQuizData(questions));
+		setQuestions(route.params.quizzes);
+	}, []);
 	const timeFormatted = (countdown: number) => {
 		const minute = Math.floor(countdown / 60);
 		const second = countdown % 60;

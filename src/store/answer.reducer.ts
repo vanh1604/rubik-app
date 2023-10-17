@@ -16,8 +16,21 @@ const loadingSlice = createSlice({
 			// console.log(action.payload.order);
 			state[action.payload.order || 0].userAns = action.payload.answer;
 		},
+		setQuizData: (state: typeof quizzes, action: PayloadAction<any>) => {
+			state = action.payload;
+		},
+		clearUserAns: (state: typeof quizzes) => {
+			const newState = state.map((item, index) => {
+				const newItem = { ...item, userAns: "" };
+				state[index] = newItem;
+				return newItem;
+			});
+			state = newState;
+		},
 	},
 });
 
 export const setUserChoice = loadingSlice.actions.setUserChoice;
 export const answerReducer = loadingSlice.reducer;
+export const setQuizData = loadingSlice.actions.setQuizData;
+export const clearUserAns = loadingSlice.actions.clearUserAns;
