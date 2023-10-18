@@ -31,6 +31,7 @@ const CardItem = (props: CardItemProps) => {
 				width={"100%"}
 				height={cardImageSize.height}
 				alt="card image"
+				borderRadius={8}
 				mb={1}
 			/>
 			<Text

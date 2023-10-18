@@ -65,11 +65,11 @@ export const quizzes = [
 ];
 
 const mockupDataCard: CardItemProps[] = [
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo2.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
+	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Bài 1" },
+	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Bài 2" },
+	{ cardImage: require("../../assets/image/Logo/item_logo2.png"), quizzes: quizzes, title: "Bài 3" },
+	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Bài 4" },
+	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Bài 5" },
 ];
 
 export const mockupData: ItemBoxProps[] = [

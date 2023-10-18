@@ -3,6 +3,9 @@ import React from "react";
 import { Box, FlatList } from "native-base";
 
 import LeagueItem, { LeagueItemProps } from "./LeagueItem";
+import { ContentProps } from "../../constansts/leagueInfor";
+
+export type ContentScreenProps = typeof ContentProps;
 export interface LeagueItemCardProps {
   data: LeagueItemProps[];
 }
