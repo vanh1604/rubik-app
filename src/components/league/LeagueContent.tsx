@@ -2,14 +2,16 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Box, ScrollView, Text, useTheme } from "native-base";
 import { LeagueItemProps } from "./LeagueItem";
-import { ContentProps, leagueData } from "../../constansts/leagueInfor";
-import { useNavigation } from "@react-navigation/native";
+import {  ContentProps, leagueData } from "../../constansts/leagueInfor";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import Header1 from "../Header1";
 import BackBtn from "../BackBtn";
 
 const LeagueContent = (props: any) => {
   const { colors } = useTheme();
+  const route = useRoute<any>();
+  const content = ContentProps.find(content=>content.id===route.params.contentID);
 
   return (
     <Box>
@@ -18,7 +20,7 @@ const LeagueContent = (props: any) => {
         <Box padding={8}>
           <Box>
             <Text lineHeight={20} fontSize={16} fontWeight={700}>
-              {ContentProps.title}
+              {content?.title}
             </Text>
           </Box>
           <Box marginTop={4}>
@@ -32,7 +34,7 @@ const LeagueContent = (props: any) => {
               marginTop={2}
               marginBottom={2}
             >
-              {ContentProps.time}
+              {content?.time}
             </Text>
           </Box>
           <Box>
@@ -46,7 +48,7 @@ const LeagueContent = (props: any) => {
               marginTop={2}
               marginBottom={2}
             >
-              {ContentProps.location}
+              {content?.location}
             </Text>
           </Box>
           <Box>
@@ -60,7 +62,7 @@ const LeagueContent = (props: any) => {
               marginTop={2}
               marginBottom={2}
             >
-              {ContentProps.signin}
+              {content?.signin}
             </Text>
           </Box>
           <Box>
@@ -74,7 +76,7 @@ const LeagueContent = (props: any) => {
               marginTop={2}
               marginBottom={2}
             >
-              {ContentProps.fees}
+              {content?.fees}
             </Text>
           </Box>
         </Box>

@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ErrorOverlay from "../components/ErrorOverlay";
 
 import LoadingOverlay from "../components/LoadingOverlay";
-import { RootStackParams } from "./config";
 
 import Quizz from "../screens/Quizz/Quizz";
 

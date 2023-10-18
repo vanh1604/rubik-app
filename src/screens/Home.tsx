@@ -13,9 +13,6 @@ type Props = {};
 const Main = (props: Props) => {
 	const userName = "Hehehe";
 	const userAva = "https://cdn.tuoitre.vn/thumb_w/730/2021/7/10/screen-shot-2021-07-10-at-114922-1625892571909294221772.png";
-	useEffect(() => {
-		console.log(quizzes);
-	});
 	return (
 		<Box>
 			<HomeHeader

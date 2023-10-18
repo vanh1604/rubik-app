@@ -7,6 +7,7 @@ import {
 import React from "react";
 import { Box, Image, Text, useTheme } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import { ContentScreenProps } from "./LeagueItemBox";
 
 export interface LeagueItemProps extends TouchableOpacityProps {
   id?: string;
@@ -14,12 +15,15 @@ export interface LeagueItemProps extends TouchableOpacityProps {
   leagueImage: any;
   date: any;
   icon: any;
+  params?: {
+    contentID: Number|string;
+  }
 }
 const LeagueItem = (props: LeagueItemProps) => {
   const { colors } = useTheme();
   const navigation = useNavigation<any>();
   const toLeagueHandler = () => {
-    navigation.navigate("Thông tin");
+    navigation.navigate("Thông tin",props.params);
   };
   return (
     <TouchableOpacity style={styles.container} onPress={toLeagueHandler}>
