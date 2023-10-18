@@ -1,72 +1,88 @@
 import { CardItemProps } from "../components/Main/CardItem";
+import { ItemBoxProps } from "../components/Main/CardItemBox";
 
 export const quizzes = [
 	{
 		ans: [
-			{ title: "Lorem ipsum 1", answer: "A" },
-			{ title: "Lorem ipsum 2", answer: "B" },
-			{ title: "Lorem ipsum C", answer: "C" },
-			{ title: "Lorem ipsum 4", answer: "D" },
+			{ title: "Albert Einstein ", answer: "A" },
+			{ title: "Isaac Newton ", answer: "B" },
+			{ title: "Ernő Rubik ", answer: "C" },
+			{ title: "Nikola Tesla ", answer: "D" },
 		],
 		order: 1,
-		rightAns: "A",
-		title: "Lorem ipsum dolor sit amet consectetur. Penatibus nunc quam nulla dignissim libero massa feugiat.",
+		rightAns: "C",
+		title: "Ai là người phát minh ra khối Rubik?",
 		userAns: "",
 	},
 	{
 		ans: [
-			{ title: "Lorem ipsum 1", answer: "A" },
-			{ title: "Lorem ipsum 2", answer: "B" },
-			{ title: "Lorem ipsum C", answer: "C" },
-			{ title: "Lorem ipsum 4", answer: "D" },
+			{ title: "20", answer: "A" },
+			{ title: "26", answer: "B" },
+			{ title: "27", answer: "C" },
+			{ title: "30", answer: "D" },
 		],
 		order: 2,
 		rightAns: "B",
-		title: "Lorem ipsum dolor sit amet consectetur. Penatibus nunc quam nulla dignissim libero massa feugiat.",
+		title: "Khối Rubik 3x3x3 có bao nhiêu mảnh?",
 		userAns: "",
 	},
 	{
 		ans: [
-			{ title: "Lorem ipsum 1", answer: "A" },
-			{ title: "Lorem ipsum 2", answer: "B" },
-			{ title: "Lorem ipsum C", answer: "C" },
-			{ title: "Lorem ipsum 4", answer: "D" },
+			{ title: "Dưới 5 giây", answer: "A" },
+			{ title: "Từ 5 đến 10 giây", answer: "B" },
+			{ title: "Từ 10 đến 15 giây", answer: "C" },
+			{ title: "Trên 15 giây", answer: "D" },
 		],
 		order: 3,
-		rightAns: "C",
-		title: "Lorem ipsum dolor sit amet consectetur. Penatibus nunc quam nulla dignissim libero massa feugiat.",
+		rightAns: "A",
+		title: "Kỷ lục thế giới về thời gian giải Rubik 3x3x3 nhanh nhất (đến thời điểm hiện tại) là bao lâu?",
 		userAns: "",
 	},
 	{
 		ans: [
-			{ title: "Lorem ipsum 1", answer: "A" },
-			{ title: "Lorem ipsum 2", answer: "B" },
-			{ title: "Lorem ipsum 3", answer: "C" },
-			{ title: "Lorem ipsum 4", answer: "D" },
+			{ title: "Xoay góc của khối", answer: "A" },
+			{ title: "Đổi chỗ các mảnh cạnh", answer: "B" },
+			{ title: "Đảo ngược vị trí các mảnh góc", answer: "C" },
+			{ title: "Xếp các mảnh cạnh đúng vị trí", answer: "D" },
 		],
 		order: 4,
 		rightAns: "B",
-		title: "Lorem ipsum dolor sit amet consectetur. Penatibus nunc quam nulla dignissim libero massa feugiat.",
+		title: "Trong quá trình giải Rubik, thuật toán “F R U Ri Ui Fi” được sử dụng để làm gì?",
 		userAns: "",
 	},
 	{
 		ans: [
-			{ title: "Lorem ipsum 1", answer: "A" },
-			{ title: "Lorem ipsum 2", answer: "B" },
-			{ title: "Lorem ipsum 3", answer: "C" },
-			{ title: "Lorem ipsum 4", answer: "D" },
+			{ title: "Tất cả các mặt đều có cùng một màu.", answer: "A" },
+			{ title: "Tất cả các mảnh đều đúng vị trí.", answer: "B" },
+			{ title: "Tất cả các mảnh đều đúng hướng.", answer: "C" },
+			{ title: "Tất cả các phương án trên.", answer: "D" },
 		],
 		order: 5,
-		rightAns: "A",
-		title: "Lorem ipsum dolor sit amet consectetur. Penatibus nunc quam nulla dignissim libero massa feugiat.",
+		rightAns: "D",
+		title: "Một khối Rubik được xem là đã giải xong khi…",
 		userAns: "",
 	},
 ];
 
-export const mockupData: CardItemProps[] = [
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
-	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Lorem ipsum Dolor sit amet" },
+const mockupDataCard: CardItemProps[] = [
+	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Bài 1" },
+	{ cardImage: require("../../assets/image/Logo/item_logo.png"), quizzes: quizzes, title: "Bài 2" },
+	{ cardImage: require("../../assets/image/Logo/item_logo2.png"), quizzes: quizzes, title: "Bài 3" },
+	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Bài 4" },
+	{ cardImage: require("../../assets/image/Logo/item_logo3.png"), quizzes: quizzes, title: "Bài 5" },
+];
+
+export const mockupData: ItemBoxProps[] = [
+	{
+		title: "Rubik 3x3x3",
+		data: mockupDataCard,
+	},
+	{
+		title: "Rubik 3x3x3",
+		data: mockupDataCard,
+	},
+	{
+		title: "Rubik 3x3x3",
+		data: mockupDataCard,
+	},
 ];
